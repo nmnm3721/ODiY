@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Search</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="../plugins/ajax/ajax_helper.css">
+    <style>
+        .left, .right {
+            border: 1px solid #1e1acb;
+            height: 180px;
+        }
+
+        .page-header {
+            text-align: center;
+        }
+        .page-header input {
+            width: 50%;
+            height: 50px;
+        }
+        .page-header button {
+            width: 50px;
+            height: 50px;
+        }
+
+        .row {
+            padding: 20px 0 20px 0;
+            border-bottom: 1px solid #ccc;
+        }
+        
+        .right {
+            padding-top: 70px;
+        }
+        .right .favorite {
+            font-size: 20px;
+            text-align: center;
+        }
+        .left .box {
+            margin-right: 20px;
+            float: left;
+        }
+        .left h4, p {
+            display: block;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="page-header">
+                <input type="text" placeholder="검색어 입력" />
+                <button>검색</button>
+            </div>
+            <div class="row">
+                <div class="col-xs-9">
+                    <div class="left">
+                        <div class="box">
+                            <img src="https://via.placeholder.com/180x180" alt="">
+                        </div>
+                        <h4>아주 아주 간단한 제목</h4>
+                        <br />
+                        <p>아주 아주 간단한 설명</p>
+                        <br />
+                        <br />
+                        <p>#태그는 하면 하고 말면 말고</p>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="right">
+                        <div class="favorite">
+                            <label for="favorite">담기</label>
+                            <input type="checkbox" name="favorite">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-9">
+                    <div class="left">
+                        <div class="box">
+                            <img src="https://via.placeholder.com/180x180" alt="">
+                        </div>
+                        <h4>아주 아주 간단한 제목</h4>
+                        <br />
+                        <p>아주 아주 간단한 설명pppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppppp</p>
+                        <br />
+                        <p>#태그는 하면 하고 말면 말고</p>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="right">
+                        <div class="favorite">
+                            <label for="favorite">담기</label>
+                            <input type="checkbox" name="favorite">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../plugins/ajax/ajax_helper.js"></script>
+</body>
+
+</html>
