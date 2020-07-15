@@ -18,9 +18,13 @@
         .page-header {
             text-align: center;
         }
-        .page-header .input-group {
-            margin: auto;
+        .page-header input {
             width: 50%;
+            height: 50px;
+        }
+        .page-header button {
+            width: 50px;
+            height: 50px;
         }
 
         .row {
@@ -33,6 +37,7 @@
         }
         .right .favorite {
             font-size: 20px;
+            text-align: center;
             text-align: center;
         }
         .left .box {
@@ -52,14 +57,8 @@
     <main>
         <div class="container">
             <div class="page-header">
-                <div class="input-group">
-                    <input type="text" class="form-control" placeholder="검색어를 입력하세요. 한 글자 공백도 쌉가능.">
-                    <span class="input-group-btn">
-                        <button type="button" class="btn btn-default">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </span>
-                </div>
+                <input type="text" placeholder="검색어 입력" />
+                <button>검색</button>
             </div>
             <div class="row">
                 <div class="col-xs-9">
@@ -111,8 +110,6 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     <script src="../plugins/ajax/ajax_helper.js"></script>
-    <!-- Place your kit's code here -->
-    <script src="https://kit.fontawesome.com/f6b62fe7f2.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
