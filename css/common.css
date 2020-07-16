@@ -137,12 +137,10 @@ li.nav-item {
 }
 /* 상세검색 체크박스 영역 */
 div.dsearch {
+	position: fixed;
 	margin-left: 20px;
 	width: 100%;
 	max-width: 480px;
-}
-
-div.dsearch {
 	font-family: "나눔고딕";
 	font-size: 0.8em;
 }
@@ -157,7 +155,14 @@ div.dsearch>div>div {
 }
 
 /* 콘텐츠 영역 */
+div.content {
+	margin: 20px;
+	padding: 10px;
+	border: 1px dotted #005f6b;
+	width: 100%;
+	max-width: 1024px;
+}
 div .slide {
-	width: 800px;
-	height: 600px;
+	width: 100%;
+	min-height: 600px;
 }
