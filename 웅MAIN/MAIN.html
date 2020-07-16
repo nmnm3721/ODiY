@@ -1,0 +1,318 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+    <script src="jquery/jquery-1.11.0.min.js"></script>
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <style>
+    h2 { text-align: center; }
+    h4 { text-align: center; }
+    body {
+    margin: auto;
+    max-width: 1024px;
+    }
+
+        .multi-item-carousel {
+          overflow: hidden;
+        }
+        .multi-item-carousel img {
+          height: auto;
+          width: 100%;
+        }
+        .multi-item-carousel .carousel-control.left,
+        .multi-item-carousel .carousel-control.right {
+            background: rgba(255, 255, 255, 0.3);
+            width: 25%;
+        }
+        .multi-item-carousel .carousel-inner {
+          width: 150%;
+          left: -25%;
+        }
+        .carousel-inner > .item.next,
+        .carousel-inner > .item.active.right {
+            -webkit-transform: translate3d(33%, 0, 0);
+            transform: translate3d(33%, 0, 0);
+        }
+        .carousel-inner > .item.prev,
+        .carousel-inner > .item.active.left {
+            -webkit-transform: translate3d(-33%, 0, 0);
+            transform: translate3d(-33%, 0, 0);
+        }
+        .item__third {
+          float: left;
+          position: relative;  /* captions can now be added */
+          width: 33.33333%;
+        }
+    </style>
+
+  </head>
+  <body>
+    <div class="container">
+    <h2>선택지 따라 출력</h2>
+    <div id="carousel-1" class="carousel slide multi-item-carousel" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-1" data-slide-to="1"></li>
+        <li data-target="#carousel-1" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <div class="item__third">
+            <p><a class="여행지1" href='https://naver.com'> <img src="여행지1.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item__third">
+            <p><a class="여행지2" href='https://naver.com'> <img src="여행지2.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+          </div>
+        </div>
+        <div class="item">
+          <div class="item__third">
+            <p><a class="여행지3" href='https://naver.com'> <img src="여행지3.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+          </div>
+        </div>
+      </div>
+      <a href="#carousel-1" class="left carousel-control" role="button" data-slide="prev"><span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span></a>
+      <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
+    </div>
+
+
+  <script>
+
+    $('.multi-item-carousel .item').each(function(){
+      var next = $(this).next();
+      if (!next.length) next = $(this).siblings(':first');
+      next.children(':first-child').clone().appendTo($(this));
+    });
+    $('.multi-item-carousel .item').each(function(){
+      var prev = $(this).prev();
+      if (!prev.length) prev = $(this).siblings(':last');
+      prev.children(':nth-last-child(2)').clone().prependTo($(this));
+    });
+  </script>
+
+
+
+
+
+
+<!--  -->
+<div class="container">
+    <p>
+        <div class="page-header">
+            <h2>오늘의 추천 관광지</h2>
+        </div>
+
+        <div id="carousel-id1" class="carousel slide" data-ride="carousel">
+            <!-- 중앙 하단부 동그라미들 -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-id1" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-id1" data-slide-to="1" class=""></li>
+                <li data-target="#carousel-id1" data-slide-to="2" class=""></li>
+            </ol>
+            <!-- 이미지 슬라이드 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="여행지4.jpg">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>첫번째</h1>
+                            <p>첫번째 추천 여행지</p>
+
+                            <!--
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="여행지5.jpg">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>두번째</h1>
+                            <p>두번째 추천 여행지</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="여행지6.jpg">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>세번째</h1>
+                            <p>세번째 추천 여행지</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 이전,다음 버튼 -->
+            <a class="left carousel-control" href="#carousel-id1" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#carousel-id1" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </p>
+
+    <p>
+        <div class="page-header">
+            <h2>현재 진행중인 행사 정보</h2>
+        </div>
+
+        <div id="carousel-id2" class="carousel slide" data-ride="carousel">
+            <!-- 중앙 하단부 동그라미들 -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-id2" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-id2" data-slide-to="1" class=""></li>
+                <li data-target="#carousel-id2" data-slide-to="2" class=""></li>
+            </ol>
+            <!-- 이미지 슬라이드 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="여행지3.jpg">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>첫번째</h1>
+                            <p>첫번째 행사</p>
+                            <!--
+                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
+                            -->
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="여행지2.jpg">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>두번째</h1>
+                            <p>두번째 행사</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="여행지1.jpg">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>세번째</h1>
+                            <p>세번째 행사</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- 이전,다음 버튼 -->
+            <a class="left carousel-control" href="#carousel-id2" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            <a class="right carousel-control" href="#carousel-id2" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+        </div>
+    </p>
+    </div>
+
+<!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+-->
+
+<!---->
+<div class="container">
+        <div class="page-header">
+            <h2>지역별 추천 관광지</h2>
+        </div>
+        <div class="media-list">
+            <div class="media">
+                <a class="pull-left" href="#">
+                    <!--h4 class="media-heading">ㅎㅇ</h4-->
+                    <img class="media-object" src="map_korea.svg" alt="Image" x="500" width="300">
+                </a>
+                <div class="media-body">
+                    <h4 class="media-heading">서울</h4>
+                    <p><a class="지역별1" href='https://naver.com'> <img src="여행지1.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+
+
+                    <h4 class="media-heading">찍고</h4>
+                    <p><a class="지역별2" href='https://naver.com'> <img src="여행지2.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                </div>
+
+                <div class="media-body">
+                    <h4 class="media-heading">대전</h4>
+                    <p><a class="지역별3" href='https://naver.com'> <img src="여행지3.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+
+                    <h4 class="media-heading">경북</h4>
+                    <p><a class="지역별4" href='https://naver.com'> <img src="여행지4.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                </div>
+
+                <div class="media-body">
+                    <h4 class="media-heading">대구</h4>
+                    <p><a class="지역별5" href='https://naver.com'> <img src="여행지5.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+
+                    <h4 class="media-heading">강원</h4>
+                    <p><a class="지역별6" href='https://naver.com'> <img src="여행지6.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                </div>
+
+                <div class="media-body">
+                    <h4 class="media-heading">부산</h4>
+                    <p><a class="지역별7" href='https://naver.com'> <img src="여행지7.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+
+                    <h4 class="media-heading">경북</h4>
+                    <p><a class="지역별8" href='https://naver.com'> <img src="여행지8.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div id="footer" class="noto">
+    <div id="footerBox" class="cf">
+        <div class="leftBox cf">
+            <h6>EZEN 이젠아카데미 컴퓨터학원</h6>
+            <div class="select-style">
+                <select onchange="if(this.value) window.open(this.value);" title="선택한 사이트로 새창 이동">
+                    <option value="">FAMILY SITE</option>
+                    <!--option value="https://www.ezenit.co.kr">이젠IT 아카데미</option-->
+                    <option value="https://edu.ezenac.co.kr">이젠온라인에듀</option>
+                </select>
+            </div>
+            <p>
+            <span class="company">(주)이젠아카데미&nbsp;&nbsp;&nbsp;&nbsp;</span><br/>
+            서울특별시 서초구 서초동 1303-37 서초W타워 13층&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표자 : <span>고태곤</span><br />
+            사업자등록번호 : 153-88-00321&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;학원의 명칭 : 이젠아카데미컴퓨터학원<br/>
+            학원등록번호 : 제11702호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업신고번호 : 제 2016-서울서초-1204호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개인정보보호책임자 : 고필곤<br><span style="color:#fff; font-weight:bold;">T. <span>1544-8147</span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
+
+            Copyright by EZEN. All rights reserved.
+            </p>
+            <!--img src="/images/common/footer_logo.jpg" alt="이젠컴퓨터학원" /-->
+        </div>
+    </div>
+</div>
+
+  </body>
+</html>
+
+<!--
+Carousel
+Twitter Bootstrap and JQuery based.
+Mobile first.
+Carousel slider with truncated next and previous buttons.
+Main slide should have Bootstrap `.container` width. That is 100% at xs. At other viewport sizes a fixed width.
+Must have:
+ - Mobile first
+ - Responsive
+ - Any content
+ - Bootstrap styles where possible
+ - Previous, next (the truncated slides)
+ToDo
+ - Slide interval
+ - Wrapping slides last slide will be the first previous button.
+Nice to have:
+ - Previous, next toned down
+ - Swipe prev next.
+ - Indicators
+    <div id="carousel">                   # Viewport width 100%. Overflow hidden;
+      <div class="wrapper">               # Total with of all slides combined. Has negative left margin. (vp_width - slide_width) / 2
+        <div class="slide">               # Responsive so variable with. On mobile 100%. Set form js from the #carousel container. Because the parent is to wide. On other sizes this should take the Bootstrap .container size.
+          <img src="slide.jpeg" class="responsive" width="100%">  # Responsive images fill the container (but keep ratio). Add 'width=100%' So upscaling can happen.
+        </div>
+        ...
+      </div>
+    </div>
+-->
