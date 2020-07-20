@@ -51,10 +51,11 @@ div.minimenu {
 	width: auto;
 	height: 40px;
 	float: right;
-	padding: 5px;
+	padding: 5px 20px;
 }
 
 div.mini {
+	position: relative;
 	width: 80px;
 	height: 40px;
 	margin: auto;
