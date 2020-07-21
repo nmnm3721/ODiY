@@ -10,8 +10,8 @@
 <link rel="stylesheet"
 	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <!-- Local CSS -->
-<link rel="stylesheet" href="css/odiyhelp.css" type=text/css />
-<link rel="stylesheet" href="css/common.css" type=text/css />
+<link rel="stylesheet" href="index/css/odiyhelp.css" type=text/css />
+<link rel="stylesheet" href="index/css/common.css" type=text/css />
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/73acf29cbb.js"></script>
 </head>
@@ -33,10 +33,10 @@
 		<h4>ODiY 프로젝트 지원용 페이지</h4>
 		<div class="header row">
 			<div class="content col">
-				<%@ include file="menu1.jsp"%>
+				<%@ include file="index/menu1.jsp"%>
 			</div>
 			<div class="sidebar col-3">
-			<%@ include file="sidebar.jsp" %>
+			<%@ include file="index/sidebar.jsp" %>
 			</div>
 		</div>
 	</div>
