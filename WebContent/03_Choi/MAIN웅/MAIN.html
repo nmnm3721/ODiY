@@ -6,11 +6,15 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
     <script src="jquery/jquery-1.11.0.min.js"></script>
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <script src="bootstrap/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
 
     <style>
     h2 { text-align: center; }
@@ -18,7 +22,29 @@
     body {
     margin: auto;
     max-width: 1024px;
+
     }
+
+
+    div#carousel-1 {
+            margin: auto;
+        }
+
+
+
+        .media-object{
+            width: 500px;
+            height: 500px;
+            margin-right: 50px;
+
+        }
+        .media-body {
+            width:auto;
+        }
+        .container-team-section {
+            width: 150px;
+            margin: auto;
+        }
 
         .multi-item-carousel {
           overflow: hidden;
@@ -51,6 +77,311 @@
           position: relative;  /* captions can now be added */
           width: 33.33333%;
         }
+
+
+
+
+
+
+
+
+        /* general class */
+        .row {
+          margin:30px 0;
+        }
+
+        /* -- Team Section */
+        .team-box {
+            text-align: center;
+            border-bottom: 8px solid #0d47a1;
+            padding-bottom: 15px;
+            background:#1e88e5;
+            box-shadow:0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.3);
+            transition: all 0.4s ease-in-out 0s;
+        }
+        .team-box:hover{
+          box-shadow:none;
+        }
+        .team-box .img-box {
+            position: relative;
+            overflow: hidden;
+            height: 120px;
+        }
+        .team-shape,
+        .team-box h3,
+        .team-hover-box ul li a {
+            transition: all 0.5s ease 0s;
+        }
+        .team-shape {
+            background-color:#1e88e5; 삼각형 애니메이션 효과(해제함)
+            position: absolute;
+            height: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            clip-path: polygon(0% 0%, 0% 100%, 100% 95%, 0% 0%);
+        }
+        .team-box:hover .team-shape {
+            height: 0;
+        }
+        .team-box h3 {
+            font-family: 'Oswald';
+            font-size: 15px;
+            color: #fff;
+          letter-spacing : 1.8px;
+            margin-top: 10px;
+            text-transform: uppercase;
+
+        }
+        .team-box:hover h3 {
+            color: #0d47a1;
+          letter-spacing : 8px;
+
+
+        }
+        .team-box p {
+            color: #fff;
+            letter-spacing: 0.42px;
+            margin-bottom: 0; 글씨 아래 마진
+        }
+        .team-box .img-box::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0,0,0,0.9);
+            display: inline-block;
+            transform: scaleY(0);
+            transform-origin: 0 0 0;
+            transition: all 0.4s ease-in-out 0s;
+            opacity: 0;
+
+            height: 150px;
+        }
+        .team-box:hover .img-box::before {
+            opacity: 1;
+            transform: scaleY(1);
+            visibility: visible;
+
+        }
+        .team-hover-box {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            right: 0;
+            transform: translate(0, -50%);
+            padding: 0 28px;
+            transition: all 1s ease 0s;
+
+        }
+        .team-box:hover .team-hover-box {
+            top: 50%;
+        }
+        .team-hover-box ul {
+            padding-left: 0;
+            margin-bottom: 20px;
+        }
+        .team-hover-box ul,
+        .team-hover-box ul li,
+        .team-hover-box ul li a {
+            display: inline-block;
+
+        }
+        .team-hover-box ul li a {
+            width: 45px;
+            height: 45px;
+            border-radius: 100%;
+            line-height: 42px;
+            border: 2px solid #fff;
+            color: #fff;
+
+        }
+        .team-hover-box ul li a:hover {
+            border-color: #e21712;
+            color: #e21712;
+
+        }
+        .team-hover-box p {
+            color: #fff;
+            font-size: 15px;
+            line-height: 24px;
+            letter-spacing: 0.45px;
+
+
+        }
+        /*--------------- media query start -------------------*/
+        @media (max-width: 479px) {
+
+            .team-section .row > .col-xs-6, .team-section .row > .s6 {
+                width: 100%;
+            }
+        }
+        @media (max-width: 991px) {
+        .team-box {
+                max-width: 270px;
+                display: block;
+                margin: 0 auto 30px;
+            }
+          .about-box {
+                max-width: 272px;
+                margin: 0 auto;
+            }
+        }
+
+        /* -- About Section */
+        .about-section .section-padding {
+            padding: 75px 0;
+        }
+        .about-section {
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+        }
+        .about-section::before {
+            content: "";
+            background-color: rgba(248,248,248,0.95);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: inline-block !important;
+        }
+        .about-section .container {
+            position: relative;
+        }
+        .about-box {
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+        .about-img-box {
+            margin: 50px 0;
+            position: relative;
+            background-color: #111;
+            -webkit-transition: all 0.5s ease 0s;
+            -moz-transition: all 0.5s ease 0s;
+            -o-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+        }
+        .about-img-box::before {
+            background-color: rgba(0, 0, 0, 0.75);
+            bottom: 0;
+            content: "";
+            display: inline-block;
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            -webkit-transition: all 0.5s ease 0s;
+            -moz-transition: all 0.5s ease 0s;
+            -o-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+        }
+        .about-img-box::after {
+            border: 1px solid #fff;
+            bottom: 15px;
+            content: "";
+            display: inline-block;
+            left: 15px;
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            -webkit-transition: all 0.5s ease 0s;
+            -moz-transition: all 0.5s ease 0s;
+            -o-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+        }
+        .about-box:hover .about-img-box {
+            -webkit-transform: scale(1.3);
+            -moz-transform: scale(1.3);
+            transform: scale(1.3);
+        }
+        .about-box:hover .about-img-box::before {
+            background-color: rgba(0,0,0,0.85);
+        }
+        .about-box:hover .about-img-box::after {
+            border: 0;
+        }
+        .about-hover-box {
+            position: absolute;
+            top: 50%;
+            -webkit-transform: translate(0, -50%);
+            -moz-transform: translate(0, -50%);
+            -ms-transform: translate(0, -50%);
+            transform: translate(0, -50%);
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: #fff;
+            padding: 0 24px;
+        }
+        .about-hover-box h5 {
+            font-family: 'Oswald';
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 2.4px;
+            margin-top: 43px;
+            margin-bottom: 0;
+            -webkit-transition: all 0.5s ease 0s;
+            -moz-transition: all 0.5s ease 0s;
+            -o-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+        }
+        .about-box:hover .about-hover-box h5 {
+            margin-top: 25px;
+            margin-bottom: 30px;
+        }
+        .about-hover-box p {
+            font-size: 0;
+            color: #fff;
+            letter-spacing: 0.45px;
+            line-height: 0;
+            -webkit-transition: all 0.5s ease 0s;
+            -moz-transition: all 0.5s ease 0s;
+            -o-transition: all 0.5s ease 0s;
+            transition: all 0.5s ease 0s;
+            margin-bottom: 0;
+        }
+        .about-box:hover .about-hover-box p {
+            font-size: 15px;
+            line-height: 28px;
+            margin-bottom: 10px;
+        }
+        .about-hover-box a {
+            font-size: 0;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.91px;
+            text-decoration: none;
+          display: inline-block;
+
+        }
+        .about-box:hover .about-hover-box a {
+            font-size: 13px;
+          padding: 6px 12px;
+        margin-bottom: 0;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.42857143;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        -ms-touch-action: manipulation;
+        touch-action: manipulation;
+        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        background-image: none;
+        border: 1px solid transparent;
+          background:#b22025;
+        }
+
+
     </style>
 
   </head>
@@ -84,138 +415,19 @@
       <a href="#carousel-1" class="right carousel-control" role="button" data-slide="next"><span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span></a>
     </div>
 
-
-  <script>
-
-    $('.multi-item-carousel .item').each(function(){
-      var next = $(this).next();
-      if (!next.length) next = $(this).siblings(':first');
-      next.children(':first-child').clone().appendTo($(this));
-    });
-    $('.multi-item-carousel .item').each(function(){
-      var prev = $(this).prev();
-      if (!prev.length) prev = $(this).siblings(':last');
-      prev.children(':nth-last-child(2)').clone().prependTo($(this));
-    });
-  </script>
-
-
-
-
-
-
 <!--  -->
-<div class="container">
-    <p>
-        <div class="page-header">
-            <h2>오늘의 추천 관광지</h2>
-        </div>
-
-        <div id="carousel-id1" class="carousel slide" data-ride="carousel">
-            <!-- 중앙 하단부 동그라미들 -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-id1" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-id1" data-slide-to="1" class=""></li>
-                <li data-target="#carousel-id1" data-slide-to="2" class=""></li>
-            </ol>
-            <!-- 이미지 슬라이드 -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="여행지4.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>첫번째</h1>
-                            <p>첫번째 추천 여행지</p>
-
-                            <!--
-                            <p><a class="btn btn-lg btn-primary" href="#" role="button">Sign up today</a></p>
-                            -->
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="여행지5.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>두번째</h1>
-                            <p>두번째 추천 여행지</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="여행지6.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1>세번째</h1>
-                            <p>세번째 추천 여행지</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 이전,다음 버튼 -->
-            <a class="left carousel-control" href="#carousel-id1" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            <a class="right carousel-control" href="#carousel-id1" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </p>
-
-    <p>
-        <div class="page-header">
-            <h2>현재 진행중인 행사 정보</h2>
-        </div>
-
-        <div id="carousel-id2" class="carousel slide" data-ride="carousel">
-            <!-- 중앙 하단부 동그라미들 -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-id2" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-id2" data-slide-to="1" class=""></li>
-                <li data-target="#carousel-id2" data-slide-to="2" class=""></li>
-                <li data-target="#carousel-id2" data-slide-to="3" class=""></li>
-            </ol>
-            <!-- 이미지 슬라이드 -->
-            <div class="carousel-inner">
-                <div class="item active">
-                    <img src="여행지3.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1><a class="행사1" href='https://naver.com'>첫번째</a></h1>
-                            <p><a class="행사1" href='https://naver.com'>첫번째 행사</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="여행지2.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1><a class="행사2" href='https://naver.com'>두번째</a></h1>
-                            <p><a class="행사2" href='https://naver.com'>두번째 행사</a></p>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="여행지1.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1><a class="행사2" href='https://naver.com'>세번째</a></h1>
-                            <p><a class="행사2" href='https://naver.com'>세번째 행사</a></p>
-                        </div>
-                    </div>
-                </div>
-                 <div class="item">
-                    <img src="여행지6.jpg">
-                    <div class="container">
-                        <div class="carousel-caption">
-                            <h1><a class="행사2" href='https://naver.com'>네번째</a></h1>
-                            <p><a class="행사2" href='https://naver.com'>네번째 행사</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- 이전,다음 버튼 -->
-            <a class="left carousel-control" href="#carousel-id2" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-            <a class="right carousel-control" href="#carousel-id2" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
-        </div>
-    </p>
+<div class="row">
+    <div class="col-md-6 col-xs-12">
+        <h2>오늘의 추천 관광지</h2>
+        <img class="choochun" src="odiy-icons.png">
     </div>
+    <div id="box" class="col-md-6 col-xs-12">
+        <h2>현재 진행중인 행사 정보</h2>
+        <img class="jinheng" src="odiy-icons.png">
+    </div>
+
+
+
 
 <!--    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
@@ -226,43 +438,188 @@
         <div class="page-header">
             <h2>지역별 추천 관광지</h2>
         </div>
+        <div class="row">
         <div class="media-list">
-            <div class="media">
-                <a class="pull-left" href="#">
-                    <!--h4 class="media-heading">ㅎㅇ</h4-->
-                    <img class="media-object" src="map_korea.svg" alt="Image" x="500" width="300">
-                </a>
-                <div class="media-body">
-                    <h4 class="media-heading">서울</h4>
-                    <p><a class="지역별1" href='https://naver.com'> <img src="여행지1.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                <div class="row">
+                    <!-- 이미지 영역 -->
+                    <div class="col-md-6 col-xs-12">
+                        <img class="media-object" src="map_korea.svg">
+                    </div>
+                    <!-- 텍스트 영역 -->
+                    <div id="box" class="col-md-6 col-xs-12">
+                    <div class="media-body">
+                    <p>
+                        <div class="container-team-section">
+                            <div class="row"> <!--Team Slecetion -->
+                                <div class="col s6 l3 xl3 animated bounceIn">
+                                    <a href="https://naver.com">
+                                    <div class="team-box">
+                                        <div class="img-box">
+                                            <img src="http://placeimg.com/480/360/travel" alt="">
+                                            <div id="team_shape-1" class="team-shape" style="clip-path: url(&quot;#team-1&quot;);">
+                                                <svg width="100%" height="100%">
+                                                    <clipPath id="team-1" clipPathUnits="objectBoundingBox">
+                                                        <polygon points="0 0, 0 1, 1 0.93, 0 0"></polygon>
+                                                    </clipPath>
+                                                </svg>
+                                            </div>
+                                        <div class="team-hover-box">
+                                            <p>제주도 음식 바가지 개심함</p>
+                                        </div>
+                                    </div>
+                                        <h3>서귀포</h3>
+                                        <p>레스토랑</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </p>
 
-
-                    <h4 class="media-heading">찍고</h4>
-                    <p><a class="지역별2" href='https://naver.com'> <img src="여행지2.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                        <p>
+                        <div class="container-team-section">
+                            <div class="row"> <!--Team Slecetion -->
+                                <div class="col s6 l3 xl3 animated bounceIn">
+                                    <a href="https://naver.com">
+                                    <div class="team-box">
+                                        <div class="img-box">
+                                            <img src="http://placeimg.com/480/360/travel" alt="">
+                                            <div id="team_shape-1" class="team-shape" style="clip-path: url(&quot;#team-1&quot;);">
+                                                <svg width="100%" height="100%">
+                                                    <clipPath id="team-1" clipPathUnits="objectBoundingBox">
+                                                        <polygon points="0 0, 0 1, 1 0.93, 0 0"></polygon>
+                                                    </clipPath>
+                                                </svg>
+                                            </div>
+                                        <div class="team-hover-box">
+                                            <p>제주도 음식 바가지 개심함</p>
+                                        </div>
+                                    </div>
+                                        <h3>서귀포</h3>
+                                        <p>키즈카페</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </p>
                 </div>
 
                 <div class="media-body">
-                    <h4 class="media-heading">대전</h4>
-                    <p><a class="지역별3" href='https://naver.com'> <img src="여행지3.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                    <p>
+                        <div class="container-team-section">
+                            <div class="row"> <!--Team Slecetion -->
+                                <div class="col s6 l3 xl3 animated bounceIn">
+                                    <a href="https://naver.com">
+                                    <div class="team-box">
+                                        <div class="img-box">
+                                            <img src="http://placeimg.com/480/360/travel" alt="">
+                                            <div id="team_shape-1" class="team-shape" style="clip-path: url(&quot;#team-1&quot;);">
+                                                <svg width="100%" height="100%">
+                                                    <clipPath id="team-1" clipPathUnits="objectBoundingBox">
+                                                        <polygon points="0 0, 0 1, 1 0.93, 0 0"></polygon>
+                                                    </clipPath>
+                                                </svg>
+                                            </div>
+                                        <div class="team-hover-box">
+                                            <p>제주도 음식 바가지 개심함</p>
+                                        </div>
+                                    </div>
+                                        <h3>무슨섬</h3>
+                                        <p>무슨곳</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </p>
 
-                    <h4 class="media-heading">경북</h4>
-                    <p><a class="지역별4" href='https://naver.com'> <img src="여행지4.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                        <p>
+                        <div class="container-team-section">
+                            <div class="row"> <!--Team Slecetion -->
+                                <div class="col s6 l3 xl3 animated bounceIn">
+                                    <a href="https://naver.com">
+                                    <div class="team-box">
+                                        <div class="img-box">
+                                            <img src="http://placeimg.com/480/360/travel" alt="">
+                                            <div id="team_shape-1" class="team-shape" style="clip-path: url(&quot;#team-1&quot;);">
+                                                <svg width="100%" height="100%">
+                                                    <clipPath id="team-1" clipPathUnits="objectBoundingBox">
+                                                        <polygon points="0 0, 0 1, 1 0.93, 0 0"></polygon>
+                                                    </clipPath>
+                                                </svg>
+                                            </div>
+                                        <div class="team-hover-box">
+                                            <p>제주도 음식 바가지 개심함</p>
+                                        </div>
+                                    </div>
+                                        <h3>어떤섬</h3>
+                                        <p>어떤곳</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </p>
                 </div>
 
                 <div class="media-body">
-                    <h4 class="media-heading">대구</h4>
-                    <p><a class="지역별5" href='https://naver.com'> <img src="여행지5.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                        <p>
+                        <div class="container-team-section">
+                            <div class="row"> <!--Team Slecetion -->
+                                <div class="col s6 l3 xl3 animated bounceIn">
+                                    <a href="https://naver.com">
+                                    <div class="team-box">
+                                        <div class="img-box">
+                                            <img src="http://placeimg.com/480/360/travel" alt="">
+                                            <div id="team_shape-1" class="team-shape" style="clip-path: url(&quot;#team-1&quot;);">
+                                                <svg width="100%" height="100%">
+                                                    <clipPath id="team-1" clipPathUnits="objectBoundingBox">
+                                                        <polygon points="0 0, 0 1, 1 0.93, 0 0"></polygon>
+                                                    </clipPath>
+                                                </svg>
+                                            </div>
+                                        <div class="team-hover-box">
+                                            <p>제주도 음식 바가지 개심함</p>
+                                        </div>
+                                    </div>
+                                        <h3>저런섬</h3>
+                                        <p>저런곳</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </p>
 
-                    <h4 class="media-heading">강원</h4>
-                    <p><a class="지역별6" href='https://naver.com'> <img src="여행지6.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+                        <p>
+                        <div class="container-team-section">
+                            <div class="row"> <!--Team Slecetion -->
+                                <div class="col s6 l3 xl3 animated bounceIn">
+                                    <a href="https://naver.com">
+                                    <div class="team-box">
+                                        <div class="img-box">
+                                            <img src="http://placeimg.com/480/360/travel" alt="">
+                                            <div id="team_shape-1" class="team-shape" style="clip-path: url(&quot;#team-1&quot;);">
+                                                <svg width="100%" height="100%">
+                                                    <clipPath id="team-1" clipPathUnits="objectBoundingBox">
+                                                        <polygon points="0 0, 0 1, 1 0.93, 0 0"></polygon>
+                                                    </clipPath>
+                                                </svg>
+                                            </div>
+                                        <div class="team-hover-box">
+                                            <p>제주도 음식 바가지 개심함</p>
+                                        </div>
+                                    </div>
+                                        <h3>그런섬</h3>
+                                        <p>그런곳</p>
+                                    </div>
+                                    </a>
+                                </div>
+                            </div>
+                            </div>
+                        </p>
                 </div>
-
-                <div class="media-body">
-                    <h4 class="media-heading">부산</h4>
-                    <p><a class="지역별7" href='https://naver.com'> <img src="여행지7.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
-
-                    <h4 class="media-heading">경북</h4>
-                    <p><a class="지역별8" href='https://naver.com'> <img src="여행지8.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
                 </div>
             </div>
         </div>
@@ -292,6 +649,21 @@
     </div>
 </div>
 
+  <script>
+
+    $('.multi-item-carousel .item').each(function(){
+      var next = $(this).next();
+      if (!next.length) next = $(this).siblings(':first');
+      next.children(':first-child').clone().appendTo($(this));
+    });
+    $('.multi-item-carousel .item').each(function(){
+      var prev = $(this).prev();
+      if (!prev.length) prev = $(this).siblings(':last');
+      prev.children(':nth-last-child(2)').clone().prependTo($(this));
+    });
+
+
+  </script>
   </body>
 </html>
 
