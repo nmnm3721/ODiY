@@ -22,7 +22,7 @@
 			for (int i = 0; i < 10; i++) {
 		%>
 		<div class="smain row">
-			<div class="col-md-9 col-xs-10">
+			<div class="col-md-9 col-10">
 				<div class="left">
 					<div class="box">
 						<a href="detail.jsp"><img src="https://via.placeholder.com/180x180" alt=""></a>
@@ -34,7 +34,7 @@
 					<p>#태그는 하면 하고 말면 말고</p>
 				</div>
 			</div>
-			<div class="col-md-3 col-xs-2">
+			<div class="col-md-3 col-2">
 				<div class="right">
 					<!--체크박스디자인-->
 					<label class="favorite"> <input type="checkbox"

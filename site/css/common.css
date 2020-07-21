@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
 /* 전체 공통 */
-
+.container {
+	width: 100%;
+	max-width: 1024px;
+	overflow: hidden;
+}
 /* 탑 */
 div.top {
 	width: 100%;
