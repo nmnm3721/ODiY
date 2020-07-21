@@ -1,0 +1,19 @@
+@charset "UTF-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+/* 헤더 */
+div>a>span, div>a>small {
+	display: lnline-block;
+}
+
+/* 본문 */
+/* 상단 */
+div.container>h4 {
+	margin: 20px;
+	padding: 10px;
+}
+/* 콘텐츠 */
+
+/* 푸터 */

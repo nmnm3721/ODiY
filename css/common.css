@@ -51,11 +51,10 @@ div.minimenu {
 	width: auto;
 	height: 40px;
 	float: right;
-	padding: 5px 20px;
+	padding: 5px;
 }
 
 div.mini {
-	position: relative;
 	width: 80px;
 	height: 40px;
 	margin: auto;
@@ -76,6 +75,7 @@ div.profile {
 	width: 30px;
 	padding: 5px;
 	float: right;
+	z-index: 100;
 }
 
 span.profile {
@@ -109,10 +109,6 @@ a.pmenuli {
 	div.pmenu {
 		visibility: visible;
 	}
-}
-
-div.pdivider {
-	border: 1px solid rgba(0, 0, 0, .01);
 }
 
 div.pmenuc {
@@ -168,12 +164,18 @@ li.nav-item {
 }
 /* 상세검색 체크박스 영역 */
 div.dsearch {
-	position: fixed;
+	visibility: hidden;
+	position: relative;
 	margin-left: 20px;
 	width: 100%;
 	max-width: 480px;
 	font-family: "나눔고딕";
 	font-size: 0.8em;
+}
+@media (min-width: 1024px) {
+	div.dsearch {
+	visibility: visible;
+	}
 }
 
 div.dsearch>div>div {
