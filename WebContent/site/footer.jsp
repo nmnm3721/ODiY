@@ -7,8 +7,8 @@
 <footer>
 	<div class="container" id="bot-container">
 		<div class="row" id="bot_row">
-			<div class="col-md-1 col-sm-1 col-xs-1"></div>
-			<div class="col-md-8 col-sm-7 col-xs-7">
+			<div class="col-md-1 col-sm-1"></div>
+			<div class="col-md-8 col-sm-7">
 				<h1 style="color: #00dffc; font-family: 메이플스토리;">
 					<strong>ODiY</strong>
 				</h1>
@@ -17,7 +17,7 @@
 				<p>전화번호 : 1234-5678</p>
 				<p>주소 : 여기 저기 이곳 저곳 몇층</p>
 			</div>
-			<div class="col-md-3 col-sm-4 col-xs-4">
+			<div class="col-md-3 col-sm-4">
 				<h2 style="font-family: 메이플스토리;">
 					<strong>HELP</strong>
 				</h2>

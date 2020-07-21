@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+.container {
+	padding-top: 20px;
+}
+
 #bot-container {
 	color: white;
 	margin: auto;
@@ -7,7 +11,7 @@
 	background-color: #343838;
 }
 
-.bot-container #bot-row {
+.container #bot-row {
 	margin: auto;
 	padding: 0;
 	height: 100%;

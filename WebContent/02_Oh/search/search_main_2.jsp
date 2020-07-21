@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 
+<%@ include file="../site/header.jsp"%>
+<!-- ************************************************* -->
 <main>
 	<div class="container">
 		<div class="page-header">
@@ -57,3 +59,4 @@
 	crossorigin="anonymous"></script>
 
 <!-- ********************************************************** -->
+<%@ include file="../site/footer.jsp"%>

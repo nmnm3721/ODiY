@@ -1,29 +1,28 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true"%>
-<!-- ************************************************* -->
-        <div class="container">
-        <div class="tripname page-header">
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
+
+    <div class="container">
+        <div class="page-header">
             <h2>관광지이름</h2>
         </div>
         <!--체크박스디자인-->
-        <div class="checkdamgi">
+        <div id="text1">
             <input align="right" type="checkbox" id="check_test_box" />
-            <label for="check_test_box" class="check-box"></label>
-            <label for="check_test_box">담기</label>
+            <label for="check_test_box"> <span></span> 담기</label>
         </div>
         <!--**체크박스디자인끝-->
-        <div class="row img1">
+        <div class="row">
             <!-- 갤러리 한 개 영역 -->
-            <div class="col-lg-12 col-md-12 col-sm-12 col-12">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <!-- .thumbnail은 박스에 회색 테두리를 쳐준다. -->
                 <div class="row">
                     <!-- 이미지 영역 -->
-                    <div class="col-md-6 col-12" align="center">
+                    <div class="col-md-6 col-xs-12" align="center">
                         <img src="img/001.jpg" />
                     </div>
                     <!-- 텍스트 영역 -->
-                    <div id="box" class="img1.text col-md-6 col-12">
+                    <div id="box" class="col-md-6 col-xs-12">
                         <p>
                             <h4>광광지정보</h4>
                             ex>삼성전자 홈페이지 챗봇서비스는 해당 제품의 페이지를 안내하고 있지만 구체적인 사진과 제품페이지로는 접속할 수 없는 상태다. 구글에서도 ‘SM-R180’을 입력하면 삼성전자의 고객지원 페이지로 출 것으로 예상된다.z서 출시하지>삼성전자 홈페이지 챗봇서비스는 해당 제품의 페이지를 안내하고 있지만 구체적인 사진과 제품페이지로는 접속할 수 없는 상태다. 구글에서도 ‘SM-R180’을 입력하면 삼성전자의 고객지원 페이지로 출 것으로 예상된다.z서 출시하지>삼성전자 홈페이지 챗봇서비스는 해당 제품의 페이지를 안내하고 있지만 구체적인 사진과 제품페이지로는 접속할 수 없는 상태다. 구글에서도 ‘SM-R180’을 입력하면 삼성전자의 고객지원 페이지로 출 것으로 예상된다.z서 출시하지 상태다. 구글에서도 ‘SM-R180’을 입력하면 삼성전자의 고객지원 페이지로 출 것으로 예상된다.z서 출시하지 않은 제.
@@ -33,7 +32,7 @@
                         <!-- .text-muted는 약간 회색으로 바뀜 -->
                     </div>
                     <!--관광지정보-->
-                    <div class="joho col-md-12 col-12">
+                    <div class="col-md-12 col-xs-12">
                         <h2>
                             <hr />
                             상세정보
@@ -95,13 +94,13 @@
                         <hr />
                     </div>
                     <!--여기까지 상세정보-->
-                    <div class="benri">
+                    <div class="container">
                         <h2>편의기능</h2>
                         <hr />
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="item">
-                                    <ul class="icon1">
+                                    <ul id="icon_list">
                                         <li>
                                             <i class="fas fa-dog fa-3x"></i>
                                             <span class="txt">애완견출입가능</span>
@@ -122,7 +121,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="item">
-                                    <ul class="icon2">
+                                    <ul id="icon_list">
                                         <li>
                                             <i class="fas fa-bus fa-3x"></i>
                                             <span class="txt">버스 도착가능</span>
@@ -145,7 +144,7 @@
                         </div>
                     </div>
                     <!--여기까지 편의기능 아이콘-->
-                    <div class="map col-md-12 col-12">
+                    <div class="col-md-12 col-xs-12">
                         <hr />
                         <h2>위치 지도</h2>
                         <img src="img/mapsample.jpg" />
@@ -157,7 +156,7 @@
                         <hr />
                         <div class="row">
                             <!-- 갤러리 한 개 영역 -->
-                            <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <!-- .thumbnail은 박스에 회색 테두리를 쳐준다. -->
                                 <a href="#" class="thumbnail">
                                     <img src="https://via.placeholder.com/640x480" class="img-responsive" />
@@ -168,7 +167,7 @@
                             </div>
                             <!-- // 갤러리 한 개 영역 -->
                             <!-- 갤러리 한 개 영역 -->
-                            <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <!-- .thumbnail은 박스에 회색 테두리를 쳐준다. -->
                                 <a href="#" class="thumbnail">
                                     <img src="https://via.placeholder.com/640x480" class="img-responsive" />
@@ -177,7 +176,7 @@
                             </div>
                             <!-- // 갤러리 한 개 영역 -->
                             <!-- 갤러리 한 개 영역 -->
-                            <div class=" col-sm-4 col-12">
+                            <div class=" col-sm-4 col-xs-12">
                                 <!-- .thumbnail은 박스에 회색 테두리를 쳐준다. -->
                                 <a href="#" class="thumbnail">
                                     <img src="https://via.placeholder.com/640x480" class="img-responsive" />
@@ -192,7 +191,7 @@
                         <hr />
                         <div class="row">
                             <!-- 갤러리 한 개 영역 -->
-                            <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <!-- .thumbnail은 박스에 회색 테두리를 쳐준다. -->
                                 <img src="https://via.placeholder.com/640x480" class="img-responsive" />
                                 <!-- .text-right는 오른쪽 정렬 -->
@@ -201,13 +200,13 @@
                             </div>
                             <!-- // 갤러리 한 개 영역 -->
                             <!-- 갤러리 한 개 영역 -->
-                            <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <img src="https://via.placeholder.com/640x480" class="img-responsive" />
                                 </a>
                             </div>
                             <!-- // 갤러리 한 개 영역 -->
                             <!-- 갤러리 한 개 영역 -->
-                            <div class=" col-sm-4 col-12">
+                            <div class=" col-sm-4 col-xs-12">
                                 <img src="https://via.placeholder.com/640x480" class="img-responsive" />
                                 </a>
                             </div>
@@ -220,7 +219,7 @@
                         <hr />
                         <div class="row">
                             <!-- 갤러리 한 개 영역 -->
-                            <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <!-- .thumbnail은 박스에 회색 테두리를 쳐준다. -->
                                 <img src="https://via.placeholder.com/640x480" class="img-responsive" />
                                 <!-- .text-right는 오른쪽 정렬 -->
@@ -229,13 +228,13 @@
                             </div>
                             <!-- // 갤러리 한 개 영역 -->
                             <!-- 갤러리 한 개 영역 -->
-                            <div class="col-sm-4 col-12">
+                            <div class="col-sm-4 col-xs-12">
                                 <img src="https://via.placeholder.com/640x480" class="img-responsive" />
                                 </a>
                             </div>
                             <!-- // 갤러리 한 개 영역 -->
                             <!-- 갤러리 한 개 영역 -->
-                            <div class=" col-sm-4 col-12">
+                            <div class=" col-sm-4 col-xs-12">
                                 <img src="https://via.placeholder.com/640x480" class="img-responsive" />
                                 </a>
                             </div>
@@ -249,3 +248,6 @@
         <div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../plugins/ajax/ajax_helper.js"></script>
