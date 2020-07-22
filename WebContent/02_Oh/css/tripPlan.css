@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+.item {
+	border: 1px solid #1e1acb;
+	padding: 5px 5px 0 5px;
+	margin-bottom: 10px;
+}
+
+.plan-map img{
+	margin: auto;
+	width: 100%;
+	max-height: 500px;
+}
+
+.item .box {
+	margin-right: 20px;
+	float: left;
+}
+
+.item h4, p {
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.plan-head {
+	margin-bottom: 20px;
+	border-bottom: 3px solid #ccc;
+}
+
+.plan-row {
+	margin-bottom: 30px;
+}
+
+#memo {
+	margin:auto;
+	width: 900px;
+	height: 500px;
+}

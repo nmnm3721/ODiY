@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+.arround-container{
+	width: 1024px;
+	padding: 30px 0 30px 0;
+	position: relative;
+}
+
+.arround-container img{
+	width: 100%;
+}
+
+.dropdown .arround-drop {
+	color: black;
+	background-color: #fff;
+}
+
+.arround-btn {
+	margin-top: 50px;
+	position: absolute;
+	left: 10px;
+	top: 10px;
+}
+
+.arround-dropdown1 {
+	padding-top: 50px;
+	position: absolute;
+	left: 60px;
+	top: 10px;
+}
+
+.arround-dropdown2 {
+	padding-top: 50px;
+	position: absolute;
+	left: 180px;
+	top: 10px;
+}
