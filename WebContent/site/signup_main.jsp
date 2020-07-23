@@ -1,54 +1,9 @@
-<!DOCTYPE html>
-<html lang="ko">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title></title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap-theme.min.css">
-    <link rel="stylesheet" href="../plugins/ajax/ajax_helper.css">
-</head>
-<style type="text/css">
-body {
-    margin: auto;
-    max-width: 1024px;
 
-}
-
-.container {
-    max-width: 1024px;
-    margin: auto;
-}
-
-/** 모든 인풋 **/
-.input-id,
-.input-pw,
-.input-pw2,
-.input-name,
-.input-birth,
-.input-seibetu,
-.input-email {
-    width: 70%;
-    margin: auto;
-
-}
-
-.input-id,
-.input-pw,
-.input-pw2,
-.input-name,
-.input-birth,
-.input-seibetu,
-.input-email {
-    height: 115px;
-    margin: auto;
-}
-</style>
-
-<body>
-    <div class="container">
+ <div class="container">
         <div>
             <h2 align="center">회원가입</h2>
             <hr />
@@ -170,6 +125,3 @@ body {
         </div>
     </div>
     <!--**이메일 끝-->
-</body>
-
-</html>

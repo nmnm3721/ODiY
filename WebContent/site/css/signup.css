@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+.container {
+    max-width: 1024px;
+}
+
+/** 모든 인풋 **/
+.input-id,
+.input-pw,
+.input-pw2,
+.input-name,
+.input-birth,
+.input-seibetu,
+.input-email {
+    width: 70%;
+    margin: auto;
+}
+
+.input-id,
+.input-pw,
+.input-pw2,
+.input-name,
+.input-birth,
+.input-seibetu,
+.input-email {
+    height: 100px;
+}
+
+.birth,
+.month1,
+.day,
+.seibetu2
+    {
+    margin: auto;
+    height: 30px;
+}
