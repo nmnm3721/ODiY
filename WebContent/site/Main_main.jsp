@@ -1,402 +1,8 @@
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-
-    <script src="jquery/jquery-1.11.0.min.js"></script>
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <script src="bootstrap/js/bootstrap.min.js"></script>
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ page trimDirectiveWhitespaces="true" %>
 
 
-    <style>
-    h2 { text-align: center; }
-    h4 { text-align: center; }
-    body {
-    margin: auto;
-    max-width: 1024px;
-
-    }
-
-
-    div#carousel-1 {
-            margin: auto;
-        }
-    div#MAP {
-            padding-left: -150px;
-        }
-
-
-
-        .media-object{
-            width: 500px;
-            height: 500px;
-            margin-right: 50px;
-
-        }
-        .media-body {
-            width:auto;
-        }
-        .container-team-section {
-            width: 150px;
-            margin: auto;
-        }
-
-        .multi-item-carousel {
-          overflow: hidden;
-        }
-        .multi-item-carousel img {
-          height: auto;
-          width: 100%;
-        }
-        .multi-item-carousel .carousel-control.left,
-        .multi-item-carousel .carousel-control.right {
-            background: rgba(255, 255, 255, 0.3);
-            width: 25%;
-        }
-        .multi-item-carousel .carousel-inner {
-          width: 150%;
-          left: -25%;
-        }
-        .carousel-inner > .item.next,
-        .carousel-inner > .item.active.right {
-            -webkit-transform: translate3d(33%, 0, 0);
-            transform: translate3d(33%, 0, 0);
-        }
-        .carousel-inner > .item.prev,
-        .carousel-inner > .item.active.left {
-            -webkit-transform: translate3d(-33%, 0, 0);
-            transform: translate3d(-33%, 0, 0);
-        }
-        .item__third {
-          float: left;
-          position: relative;  /* captions can now be added */
-          width: 33.33333%;
-        }
-
-
-
-
-
-    path:hover {opacity: 0.7; cursor: pointer}
-
-    #city-1-content, #city-2-content,#city-3-content,#city-4-content, #city-5-content, #city-6-content {display: none}
-
-
-
-
-
-
-
-
-        /* general class */
-        .row {
-          margin:30px 0;
-        }
-
-        /* -- Team Section */
-        .team-box {
-            text-align: center;
-            border-bottom: 8px solid #0d47a1;
-            padding-bottom: 15px;
-            background:#1e88e5;
-            box-shadow:0 8px 10px 1px rgba(0,0,0,0.14),0 3px 14px 2px rgba(0,0,0,0.12),0 5px 5px -3px rgba(0,0,0,0.3);
-            transition: all 0.4s ease-in-out 0s;
-        }
-        .team-box:hover{
-          box-shadow:none;
-        }
-        .team-box .img-box {
-            position: relative;
-            overflow: hidden;
-            height: 120px;
-        }
-        .team-shape,
-        .team-box h3,
-        .team-hover-box ul li a {
-            transition: all 0.5s ease 0s;
-        }
-        .team-shape {
-            background-color:#1e88e5; 삼각형 애니메이션 효과(해제함)
-            position: absolute;
-            height: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            clip-path: polygon(0% 0%, 0% 100%, 100% 95%, 0% 0%);
-        }
-        .team-box:hover .team-shape {
-            height: 0;
-        }
-        .team-box h3 {
-            font-family: 'Oswald';
-            font-size: 15px;
-            color: #fff;
-          letter-spacing : 1.8px;
-            margin-top: 10px;
-            text-transform: uppercase;
-
-        }
-        .team-box:hover h3 {
-            color: #0d47a1;
-          letter-spacing : 8px;
-
-
-        }
-        .team-box p {
-            color: #fff;
-            letter-spacing: 0.42px;
-            margin-bottom: 0; 글씨 아래 마진
-        }
-        .team-box .img-box::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0,0,0,0.9);
-            display: inline-block;
-            transform: scaleY(0);
-            transform-origin: 0 0 0;
-            transition: all 0.4s ease-in-out 0s;
-            opacity: 0;
-
-            height: 150px;
-        }
-        .team-box:hover .img-box::before {
-            opacity: 1;
-            transform: scaleY(1);
-            visibility: visible;
-
-        }
-        .team-hover-box {
-            position: absolute;
-            top: -50%;
-            left: 0;
-            right: 0;
-            transform: translate(0, -50%);
-            padding: 0 28px;
-            transition: all 1s ease 0s;
-
-        }
-        .team-box:hover .team-hover-box {
-            top: 50%;
-        }
-        .team-hover-box ul {
-            padding-left: 0;
-            margin-bottom: 20px;
-        }
-        .team-hover-box ul,
-        .team-hover-box ul li,
-        .team-hover-box ul li a {
-            display: inline-block;
-
-        }
-        .team-hover-box ul li a {
-            width: 45px;
-            height: 45px;
-            border-radius: 100%;
-            line-height: 42px;
-            border: 2px solid #fff;
-            color: #fff;
-
-        }
-        .team-hover-box ul li a:hover {
-            border-color: #e21712;
-            color: #e21712;
-
-        }
-        .team-hover-box p {
-            color: #fff;
-            font-size: 15px;
-            line-height: 24px;
-            letter-spacing: 0.45px;
-
-
-        }
-        /*--------------- media query start -------------------*/
-        @media (max-width: 479px) {
-
-            .team-section .row > .col-xs-6, .team-section .row > .s6 {
-                width: 100%;
-            }
-        }
-        @media (max-width: 991px) {
-        .team-box {
-                max-width: 270px;
-                display: block;
-                margin: 0 auto 30px;
-            }
-          .about-box {
-                max-width: 272px;
-                margin: 0 auto;
-            }
-        }
-
-        /* -- About Section */
-        .about-section .section-padding {
-            padding: 75px 0;
-        }
-        .about-section {
-            background-repeat: no-repeat;
-            background-size: cover;
-            position: relative;
-        }
-        .about-section::before {
-            content: "";
-            background-color: rgba(248,248,248,0.95);
-            position: absolute;
-            left: 0;
-            right: 0;
-            top: 0;
-            bottom: 0;
-            display: inline-block !important;
-        }
-        .about-section .container {
-            position: relative;
-        }
-        .about-box {
-            overflow: hidden;
-            width: 100%;
-            position: relative;
-        }
-        .about-img-box {
-            margin: 50px 0;
-            position: relative;
-            background-color: #111;
-            -webkit-transition: all 0.5s ease 0s;
-            -moz-transition: all 0.5s ease 0s;
-            -o-transition: all 0.5s ease 0s;
-            transition: all 0.5s ease 0s;
-        }
-        .about-img-box::before {
-            background-color: rgba(0, 0, 0, 0.75);
-            bottom: 0;
-            content: "";
-            display: inline-block;
-            left: 0;
-            position: absolute;
-            right: 0;
-            top: 0;
-            -webkit-transition: all 0.5s ease 0s;
-            -moz-transition: all 0.5s ease 0s;
-            -o-transition: all 0.5s ease 0s;
-            transition: all 0.5s ease 0s;
-        }
-        .about-img-box::after {
-            border: 1px solid #fff;
-            bottom: 15px;
-            content: "";
-            display: inline-block;
-            left: 15px;
-            position: absolute;
-            right: 15px;
-            top: 15px;
-            -webkit-transition: all 0.5s ease 0s;
-            -moz-transition: all 0.5s ease 0s;
-            -o-transition: all 0.5s ease 0s;
-            transition: all 0.5s ease 0s;
-        }
-        .about-box:hover .about-img-box {
-            -webkit-transform: scale(1.3);
-            -moz-transform: scale(1.3);
-            transform: scale(1.3);
-        }
-        .about-box:hover .about-img-box::before {
-            background-color: rgba(0,0,0,0.85);
-        }
-        .about-box:hover .about-img-box::after {
-            border: 0;
-        }
-        .about-hover-box {
-            position: absolute;
-            top: 50%;
-            -webkit-transform: translate(0, -50%);
-            -moz-transform: translate(0, -50%);
-            -ms-transform: translate(0, -50%);
-            transform: translate(0, -50%);
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: #fff;
-            padding: 0 24px;
-        }
-        .about-hover-box h5 {
-            font-family: 'Oswald';
-            font-size: 16px;
-            text-transform: uppercase;
-            letter-spacing: 2.4px;
-            margin-top: 43px;
-            margin-bottom: 0;
-            -webkit-transition: all 0.5s ease 0s;
-            -moz-transition: all 0.5s ease 0s;
-            -o-transition: all 0.5s ease 0s;
-            transition: all 0.5s ease 0s;
-        }
-        .about-box:hover .about-hover-box h5 {
-            margin-top: 25px;
-            margin-bottom: 30px;
-        }
-        .about-hover-box p {
-            font-size: 0;
-            color: #fff;
-            letter-spacing: 0.45px;
-            line-height: 0;
-            -webkit-transition: all 0.5s ease 0s;
-            -moz-transition: all 0.5s ease 0s;
-            -o-transition: all 0.5s ease 0s;
-            transition: all 0.5s ease 0s;
-            margin-bottom: 0;
-        }
-        .about-box:hover .about-hover-box p {
-            font-size: 15px;
-            line-height: 28px;
-            margin-bottom: 10px;
-        }
-        .about-hover-box a {
-            font-size: 0;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.91px;
-            text-decoration: none;
-          display: inline-block;
-
-        }
-        .about-box:hover .about-hover-box a {
-            font-size: 13px;
-          padding: 6px 12px;
-        margin-bottom: 0;
-        font-size: 14px;
-        font-weight: 400;
-        line-height: 1.42857143;
-        text-align: center;
-        white-space: nowrap;
-        vertical-align: middle;
-        -ms-touch-action: manipulation;
-        touch-action: manipulation;
-        cursor: pointer;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-        background-image: none;
-        border: 1px solid transparent;
-          background:#b22025;
-        }
-
-
-    </style>
-
-  </head>
-  <body>
     <div class="container">
     <h2>선택지 따라 출력</h2>
     <div id="carousel-1" class="carousel slide multi-item-carousel" data-ride="carousel">
@@ -408,17 +14,17 @@
       <div class="carousel-inner" role="listbox">
         <div class="item active">
           <div class="item__third">
-            <p><a class="여행지1" href='https://naver.com'> <img src="여행지1.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+            <p><a class="여행지1" href='https://naver.com'> <img src="img/여행지1.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
           </div>
         </div>
         <div class="item">
           <div class="item__third">
-            <p><a class="여행지2" href='https://naver.com'> <img src="여행지2.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+            <p><a class="여행지2" href='https://naver.com'> <img src="img/여행지2.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
           </div>
         </div>
         <div class="item">
           <div class="item__third">
-            <p><a class="여행지3" href='https://naver.com'> <img src="여행지3.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
+            <p><a class="여행지3" href='https://naver.com'> <img src="img/여행지3.jpg" alt="Image" x="100" width="100" width="100%"></a></p>
           </div>
         </div>
       </div>
@@ -430,11 +36,11 @@
 <div class="row">
     <div class="col-md-6 col-xs-12">
         <h2>오늘의 추천 관광지</h2>
-        <img class="choochun" src="odiy-icons.png">
+        <img class="choochun" src="img/odiy-icons.png">
     </div>
     <div id="box" class="col-md-6 col-xs-12">
         <h2>현재 진행중인 행사 정보</h2>
-        <img class="jinheng" src="odiy-icons.png">
+        <img class="jinheng" src="img/odiy-icons.png">
     </div>
 
 
@@ -786,30 +392,6 @@ City 6
         </div>
     </div>
 
-<div id="footer" class="noto">
-    <div id="footerBox" class="cf">
-        <div class="leftBox cf">
-            <h6>EZEN 이젠아카데미 컴퓨터학원</h6>
-            <div class="select-style">
-                <select onchange="if(this.value) window.open(this.value);" title="선택한 사이트로 새창 이동">
-                    <option value="">FAMILY SITE</option>
-                    <!--option value="https://www.ezenit.co.kr">이젠IT 아카데미</option-->
-                    <option value="https://edu.ezenac.co.kr">이젠온라인에듀</option>
-                </select>
-            </div>
-            <p>
-            <span class="company">(주)이젠아카데미&nbsp;&nbsp;&nbsp;&nbsp;</span><br/>
-            서울특별시 서초구 서초동 1303-37 서초W타워 13층&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;대표자 : <span>고태곤</span><br />
-            사업자등록번호 : 153-88-00321&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;학원의 명칭 : 이젠아카데미컴퓨터학원<br/>
-            학원등록번호 : 제11702호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;통신판매업신고번호 : 제 2016-서울서초-1204호&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;개인정보보호책임자 : 고필곤<br><span style="color:#fff; font-weight:bold;">T. <span>1544-8147</span>&nbsp;&nbsp;&nbsp;&nbsp;</span>
-
-            Copyright by EZEN. All rights reserved.
-            </p>
-            <!--img src="/images/common/footer_logo.jpg" alt="이젠컴퓨터학원" /-->
-        </div>
-    </div>
-</div>
-
   <script>
 
     $('.multi-item-carousel .item').each(function(){
@@ -826,57 +408,26 @@ City 6
 
   </script>
 
-<script type="text/javascript">
-$(function($){
-    $('#city-1').click(function(){
-        $('#city-1-content').toggle();
-    });
-  $('#city-2').click(function(){
-        $('#city-2-content').toggle();
-    });
-  $('#city-3').click(function(){
-        $('#city-3-content').toggle();
-    });
-  $('#city-4').click(function(){
-        $('#city-4-content').toggle();
-    });
-  $('#city-5').click(function(){
-        $('#city-5-content').toggle();
-    });
-  $('#city-6').click(function(){
-        $('#city-6-content').toggle();
-    });
-});
-
-</script>
-  </body>
-</html>
-
-<!--
-Carousel
-Twitter Bootstrap and JQuery based.
-Mobile first.
-Carousel slider with truncated next and previous buttons.
-Main slide should have Bootstrap `.container` width. That is 100% at xs. At other viewport sizes a fixed width.
-Must have:
- - Mobile first
- - Responsive
- - Any content
- - Bootstrap styles where possible
- - Previous, next (the truncated slides)
-ToDo
- - Slide interval
- - Wrapping slides last slide will be the first previous button.
-Nice to have:
- - Previous, next toned down
- - Swipe prev next.
- - Indicators
-    <div id="carousel">                   # Viewport width 100%. Overflow hidden;
-      <div class="wrapper">               # Total with of all slides combined. Has negative left margin. (vp_width - slide_width) / 2
-        <div class="slide">               # Responsive so variable with. On mobile 100%. Set form js from the #carousel container. Because the parent is to wide. On other sizes this should take the Bootstrap .container size.
-          <img src="slide.jpeg" class="responsive" width="100%">  # Responsive images fill the container (but keep ratio). Add 'width=100%' So upscaling can happen.
-        </div>
-        ...
-      </div>
-    </div>
--->
+	<script type="text/javascript">
+	$(function($){
+	    $('#city-1').click(function(){
+	        $('#city-1-content').toggle();
+	    });
+	  $('#city-2').click(function(){
+	        $('#city-2-content').toggle();
+	    });
+	  $('#city-3').click(function(){
+	        $('#city-3-content').toggle();
+	    });
+	  $('#city-4').click(function(){
+	        $('#city-4-content').toggle();
+	    });
+	  $('#city-5').click(function(){
+	        $('#city-5-content').toggle();
+	    });
+	  $('#city-6').click(function(){
+	        $('#city-6-content').toggle();
+	    });
+	});
+	
+	</script>

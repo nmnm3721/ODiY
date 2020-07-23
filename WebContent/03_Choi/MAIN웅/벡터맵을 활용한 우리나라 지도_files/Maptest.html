@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>벡터맵을 활용한 우리나라 지도</title>
+    <meta name="description" content="D3.js로 만든 우리나라 지도">
+  <meta name="author" content="링크잇, http://linkit.kr">
+
+    <link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--[if lt IE 9]>
+  <script src="http://linkit.kr/demos/browser_update.js"></script>
+  <![endif]-->
+
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+    <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+    <script src="js/d3.js"></script>
+</head>
+<body>
+
+    <div id="container" class="container">
+        <h1>벡터맵을 활용한 우리나라 지도</h1>
+        <p style="font-size:13px;">벡터맵을 활용하여 우리나라를 표출하고, 확대/축소가 가능하며, 행정구역별로 확대 이동이 가능하여 행정구역별 통계등을 표현하는데 유용하게 활용될 수 있습니다.</p>
+
+        <div id="radio">
+            <span class="title">지명표시</span>
+        <input type="radio" id="radio1" name="radio" value="on" checked><label for="radio1">On</label>
+        <input type="radio" id="radio2" name="radio" value="off"><label for="radio2">Off</label>
+      </div>
+
+      <div id="control" class="ui-widget-header ui-corner-all" style="top:140px;">
+          <button id="zoomin">확대</button>
+          <button id="zoomout">축소</button>
+        </div>
+    </div>
+
+    <div class="footer" style="display:none;">
+        <p>이 지도는 <a href="http://d3js.org/" target="_blank">D3.js</a>로 만들었으며 <a href="http://bl.ocks.org/mbostock/2206340" target="_blank">mbostock’s block #2206340</a>을 보고 만든 것입니다.</p>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
