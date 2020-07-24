@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 .item {
-	border: 1px solid #1e1acb;
+	border: 1px solid #00ffff;
 	padding: 5px 5px 0 5px;
 	margin-bottom: 10px;
 }
@@ -18,6 +18,7 @@
 }
 
 .item h4, p {
+	color: black;
 	display: block;
 	white-space: nowrap;
 	overflow: hidden;
@@ -35,6 +36,18 @@
 
 #memo {
 	margin:auto;
-	width: 900px;
-	height: 500px;
+	width: 100%;
+	min-height: 500px;
+	max-height: 500px;
+}
+
+.plan-btn-group {
+	text-align: right;
+}
+
+.plan-btn {
+	bottom: 10px;
+	right: 10px;
+	margin-top: -20px;
+	margin-bottom: 20px;
 }

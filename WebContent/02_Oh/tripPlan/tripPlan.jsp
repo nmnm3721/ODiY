@@ -21,9 +21,6 @@
 	href="<%=request.getContextPath()%>/site/css/bottom.css"
 	type="text/css" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/site/css/search_main.css"
-	type="text/css" />
-<link rel="stylesheet"
 	href="<%=request.getContextPath()%>/02_Oh/css/tripPlan.css"
 	type="text/css" />
 <!-- FontAwesome -->
@@ -59,7 +56,7 @@
 			<div class="row plan-row">
 				<div class="col-md-8">
 					<%
-						for (int i = 0; i < 10; i++) {
+						for (int i = 0; i < 5; i++) {
 					%>
 					<div class="item">
 						<div class="box">
@@ -81,15 +78,18 @@
 				</div>
 			</div>
 		</div>
-		<div class="container">
+		<div class="container plan-btn-container">
 			<div class="page-header-left plan-head">
 				<h2>MY MEMO</h2>
 			</div>
 			<div class="row plan-row">
 				<div class="col-12">
-					<textarea name="memo" id="memo" minlength="500"
-						placeholder="여행계획에 대한 메모를 남겨보세요."></textarea>
+					<textarea name="memo" id="memo" placeholder="여행계획에 대한 메모를 남겨보세요."></textarea>
 				</div>
+			</div>
+			<div class="plan-btn-group">
+				<button type="button" class="btn btn-outline-primary plan-btn">수정</button>
+				<button type="button" class="btn btn-outline-primary plan-btn">저장</button>
 			</div>
 		</div>
 	</main>
@@ -101,6 +101,7 @@
 	<!-- Place your kit's code here -->
 	<script src="https://kit.fontawesome.com/f6b62fe7f2.js"
 		crossorigin="anonymous"></script>
+
 
 	<!-- ********************************************************** -->
 	<%@ include file="../../site/footer.jsp"%>
