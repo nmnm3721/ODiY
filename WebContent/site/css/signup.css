@@ -1,9 +1,19 @@
 @charset "UTF-8";
-
-.container {
+body {
+    margin: auto;
     max-width: 1024px;
+    
+
 }
 
+
+
+.page-all {
+	text-align:left;
+	width : 700%;
+    max-width : 1024px;
+    height: 900px;
+}
 /** 모든 인풋 **/
 .input-id,
 .input-pw,
