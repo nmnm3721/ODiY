@@ -14,6 +14,8 @@
 <link rel="stylesheet" href="index/css/common.css" type=text/css />
 <!-- FontAwesome -->
 <script src="https://kit.fontawesome.com/73acf29cbb.js"></script>
+<!-- Local JS -->
+<script src="index/js/menu.js"></script>
 </head>
 <body>
 	<!-- Bootstrap JS -->
@@ -32,8 +34,8 @@
 	<div class="container">
 		<h4>ODiY 프로젝트 지원용 페이지</h4>
 		<div class="header row">
-			<div class="content col">
-				<%@ include file="index/menu1.jsp"%>
+			<div class="content col" id="menu">
+				<%@ include file="index/menu2.jsp"%>
 			</div>
 			<div class="sidebar col-3">
 			<%@ include file="index/sidebar.jsp" %>
