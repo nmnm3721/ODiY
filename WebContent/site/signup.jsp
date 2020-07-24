@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="css/common.css" type="text/css" />
 <link rel="stylesheet" href="css/bottom.css" type="text/css" />
 <link rel="stylesheet" href="css/search_main.css" type="text/css" />
-<link rel="stylesheet" href="css/signup_main.css" type="text/css" />
+<link rel="stylesheet" href="css/signup.css" type="text/css" />
 <!-- bootstrap js -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script

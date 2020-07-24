@@ -2,18 +2,13 @@
 body {
     margin: auto;
     max-width: 1024px;
-    
-
 }
 
-
-
-.page-all {
-	text-align:left;
-	width : 700%;
-    max-width : 1024px;
-    height: 900px;
+.container {
+    max-width: 70%;
+    margin: auto;
 }
+
 /** 모든 인풋 **/
 .input-id,
 .input-pw,
@@ -24,6 +19,11 @@ body {
 .input-email {
     width: 70%;
     margin: auto;
+
+}
+
+.page-all {
+    width: 70%;
 }
 
 .input-id,
@@ -33,14 +33,6 @@ body {
 .input-birth,
 .input-seibetu,
 .input-email {
-    height: 100px;
-}
-
-.birth,
-.month1,
-.day,
-.seibetu2
-    {
+    height: 115px;
     margin: auto;
-    height: 30px;
 }
