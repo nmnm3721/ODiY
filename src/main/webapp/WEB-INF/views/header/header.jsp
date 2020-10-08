@@ -20,8 +20,8 @@
 				<input type="search" class="form-control" placeholder="어디로 갈까요?"
 					aria-label="Search" name="keyword" value="${keyword}" />
 				<input type="hidden" class="tour_eat_zzz" name="tour_eat_zzz" value="${tour_eat_zzz}" />
-				<input type="hidden" class="detail_area" name="detail_area" value="${detail_area}" />
-				<input type="hidden" class="detail_cat1" name="detail_cat1" value="${detail_cat1}" />
+				<!-- <input type="hidden" class="detail_area" name="detail_area" value="${detail_area}" />
+				<input type="hidden" class="detail_cat1" name="detail_cat1" value="${detail_cat1}" /> -->
 				<input type="hidden" class="detail_desc" name="detail_desc" value="${detail_desc}" />
 				<button class="btn btn-outline-secondary" type="submit">
 					<i class="fas fa-search"></i>
@@ -95,8 +95,8 @@
 					placeholder="어디로 갈까요?" aria-label="Search" name="keyword"
 					value="${keyword}" />
 				<input type="hidden" class="tour_eat_zzz" name="tour_eat_zzz" value="${tour_eat_zzz}" />
-				<input type="hidden" class="detail_area" name="detail_area" value="${detail_area}" />
-				<input type="hidden" class="detail_cat1" name="detail_cat1" value="${detail_cat1}" />
+				<!-- <input type="hidden" class="detail_area" name="detail_area" value="${detail_area}" />
+				<input type="hidden" class="detail_cat1" name="detail_cat1" value="${detail_cat1}" /> -->
 				<input type="hidden" class="detail_desc" name="detail_desc" value="${detail_desc}" />
 				<button class="btn btn-outline-secondary my-2 my-sm-0 col-2"
 					type="submit">

@@ -1,4 +1,5 @@
 $( () => {
+	/** 상세검색 토글 */
 	$("#dsearchbutton").click(function(e) {
 		e.preventDefault();
 		$("#dsearch").toggleClass("hidden");
@@ -45,32 +46,32 @@ $( () => {
 	});
 
 	/** 체크박스 일괄선택기능 (전국) */
-	$("#ds_area_inlineCheckbox1").change(function() {
-		$("#ds_area input").prop('checked', $(this).prop('checked'));
-	});
+//	$("#ds_area_inlineCheckbox1").change(function() {
+//		$("#ds_area input").prop('checked', $(this).prop('checked'));
+//	});
 	
 	/** 체크박스 상태를 hidden input으로 전달 */
-	let detail_area="";
-	$("#ds_area .form-check-input").change(function() {
-		// 체크박스에 변경이 일어나면 각 체크박스 중 체크 된 체크박스 value값을 모아 string 생성
-		detail_area="0";
-		$("#ds_area .form-check-input:checked").each(function() {
-			detail_area+="-";
-			detail_area+=$(this).val();
-		});
-		$(".detail_area").val(detail_area);
-	});
-	
-	let detail_cat1="";
-	$("#ds_cat1 .form-check-input").change(function() {
-		// 체크박스에 변경이 일어나면 각 체크박스 중 체크 된 체크박스 value값을 모아 string 생성
-		detail_cat1="0";
-		$("#ds_cat1 .form-check-input:checked").each(function() {
-			detail_cat1+="-";
-			detail_cat1+=$(this).val();
-		});
-		$(".detail_cat1").val(detail_cat1);
-	});
+//	let detail_area="";
+//	$("#ds_area .form-check-input").change(function() {
+//		// 체크박스에 변경이 일어나면 각 체크박스 중 체크 된 체크박스 value값을 모아 string 생성
+//		detail_area="0";
+//		$("#ds_area .form-check-input:checked").each(function() {
+//			detail_area+="-";
+//			detail_area+=$(this).val();
+//		});
+//		$(".detail_area").val(detail_area);
+//	});
+//	
+//	let detail_cat1="";
+//	$("#ds_cat1 .form-check-input").change(function() {
+//		// 체크박스에 변경이 일어나면 각 체크박스 중 체크 된 체크박스 value값을 모아 string 생성
+//		detail_cat1="0";
+//		$("#ds_cat1 .form-check-input:checked").each(function() {
+//			detail_cat1+="-";
+//			detail_cat1+=$(this).val();
+//		});
+//		$(".detail_cat1").val(detail_cat1);
+//	});
 	
 	let detail_desc="";
 	$("#ds_desc .form-check-input").change(function() {

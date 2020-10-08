@@ -49,9 +49,9 @@ public class SearchController {
 			// 여행지식당숙박
 			@RequestParam(value="tour_eat_zzz", required=false) String tour_eat_zzz,
 			// 지역코드
-			@RequestParam(value="detail_area", required=false) String detail_area,
+//			@RequestParam(value="detail_area", required=false) String detail_area,
 			// 분류코드
-			@RequestParam(value="detail_cat1", required=false) String detail_cat1,
+//			@RequestParam(value="detail_cat1", required=false) String detail_cat1,
 			// 정렬
 			@RequestParam(value="detail_desc", required=false) String detail_desc,
 			// 페이지 구현에서 사용할 현재 페이지 번호
@@ -69,12 +69,12 @@ public class SearchController {
 		if (keyword == null) {
 			keyword = "";
 		}
-		if (detail_area==null) {
-			detail_area="";
-		}
-		if (detail_cat1==null) {
-			detail_cat1="";
-		}
+//		if (detail_area==null) {
+//			detail_area="";
+//		}
+//		if (detail_cat1==null) {
+//			detail_cat1="";
+//		}
 		if (detail_desc=="" || detail_desc==null) {
 			detail_desc="createdtime-desc";
 		}
@@ -86,8 +86,8 @@ public class SearchController {
 		ApiItem input = new ApiItem();
 		input.setTitle(keyword);
 		input.setTourEatZzz(tour_eat_zzz);
-		input.setAreacode(detail_area);
-		input.setCat1(detail_cat1);
+//		input.setAreacode(detail_area);
+//		input.setCat1(detail_cat1);
 		input.setDesc(detail_desc);
 
 		List<ApiItem> output = null; // 조회결과가 저장될 객체
@@ -114,8 +114,8 @@ public class SearchController {
 		model.addAttribute("output", output);
 		model.addAttribute("pageData", pageData);
 		model.addAttribute("tour_eat_zzz", tour_eat_zzz);
-		model.addAttribute("detail_area", detail_area);
-		model.addAttribute("detail_cat1", detail_cat1);
+//		model.addAttribute("detail_area", detail_area);
+//		model.addAttribute("detail_cat1", detail_cat1);
 		model.addAttribute("detail_desc", detail_desc);
 
 		return new ModelAndView("search/search");

@@ -107,6 +107,8 @@
 			<c:url value="/search/search.do" var="pageUrl">
 				<c:param name="page" value="${i}"></c:param>
 				<c:param name="keyword" value="${keyword}"></c:param>
+				<c:param name="tour_eat_zzz" value="${tour_eat_zzz}"></c:param>
+				<c:param name="desc" value="${detail_desc}"></c:param>
 			</c:url>
 
 			<%-- 페이지 번호 출력 --%>
