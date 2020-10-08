@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserMapper">
+
+	<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+	<resultMap type="org.odiy.spring.model.User" id="userMap">
+
+		<!-- 일련번호, IS NOT NULL, PRI -->
+		<result column="user_num" property="userNum" />
+
+		<!-- 아이디, IS NOT NULL -->
+		<result column="user_email" property="userEmail" />
+
+		<!-- 비밀번호(암호화저장), IS NOT NULL -->
+		<result column="user_pw" property="userPw" />
+
+		<!-- 회원이름, IS NOT NULL -->
+		<result column="user_name" property="userName" />
+
+		<!-- 생년월일, IS NOT NULL -->
+		<result column="user_birthday" property="userBirthday" />
+
+		<!-- 썸네일, IS NOT NULL -->
+		<result column="user_thumb" property="userThumb" />
+
+		<!-- 관리자 여부(Y/N), IS NOT NULL -->
+		<result column="is_admin" property="isAdmin" />
+
+		<!-- 탈퇴여부(Y/N), IS NOT NULL -->
+		<result column="is_out" property="isOut" />
+
+		<!-- 등록일시, IS NOT NULL -->
+		<result column="reg_date" property="regDate" />
+
+		<!-- 변경일시, IS NOT NULL -->
+		<result column="edit_date" property="editDate" />
+
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem" resultMap="userMap"
+		parameterType="org.odiy.spring.model.User">SELECT user_num,user_email, user_pw, user_name,
+		user_birthday,user_thumb,
+		is_admin, is_out, reg_date, edit_date FROM
+		user WHERE user_num=#{userNum}
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList" resultMap="userMap"
+		parameterType="org.odiy.spring.model.User">
+		SELECT user_num, user_email, user_pw, user_name,
+		user_birthday,user_thumb,
+		is_admin, is_out, reg_date, edit_date FROM
+		user ORDER BY user_num DESC
+		<if test="listCount > 0">LIMIT #{offset}, #{listCount} </if>
+
+	</select>
+
+	<!-- 데이터 수 조회를 위한 기능 정의 -->
+	<select id="selectCountAll"
+		parameterType="org.odiy.spring.model.User" resultType="int">
+		SELECT COUNT(*)
+		FROM user
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertItem"
+		parameterType="org.odiy.spring.model.User" keyProperty="userNum"
+		useGeneratedKeys="true">INSERT INTO user (user_email, user_pw, user_name,
+		user_birthday,user_thumb,
+		is_admin, is_out, reg_date, edit_date)
+		VALUES
+		(#{userEmail}, MD5(#{userPw}), #{userName}, #{userBirthday},
+		#{userThumb},
+		#{isAdmin}, #{isOut}, now(), now())
+	</insert>
+
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem"
+		parameterType="org.odiy.spring.model.User">DELETE FROM user WHERE user_num=#{userNum} </delete>
+
+
+
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem"
+		parameterType="org.odiy.spring.model.User">UPDATE user
+		SET
+		user_pw=MD5(#{userPw}),user_name=#{userName},
+	is_admin=#{isAdmin},
+		is_out=#{isOut},edit_date=now() WHERE
+		user_num=#{userNum}
+	</update>
+	
+	<update id="updateTime"
+		parameterType="org.odiy.spring.model.User"> UPDATE user
+		SET
+		edit_date=now() WHERE
+		user_num=#{userNum}
+	
+	</update>
+	
+	<update id="useroutItem"
+		parameterType="org.odiy.spring.model.User">UPDATE user
+		SET
+		is_out='Y'
+		WHERE
+		user_num=#{userNum}
+	</update>
+
+	<!-- 아이디(이메일) 중복검사 -->
+	<select id="emailUniqueCheck"
+		parameterType="org.odiy.spring.model.User" resultType="int">SELECT COUNT(*)
+		FROM user WHERE user_email=#{userEmail}
+	</select>
+
+
+
+	<!-- 로그인 조회 -->
+	<select id="login" resultMap="userMap"
+		parameterType="org.odiy.spring.model.User">SELECT user_num, user_email, user_pw, user_name,
+		user_birthday,user_thumb,
+		is_admin, is_out, reg_date, edit_date FROM
+		user WHERE user_email=#{userEmail} AND
+		user_pw=MD5(#{userPw}) AND
+		is_out='N'
+	</select>
+
+
+</mapper>

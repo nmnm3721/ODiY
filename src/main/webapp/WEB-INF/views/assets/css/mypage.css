@@ -1,0 +1,75 @@
+@charset "UTF-8";
+
+@charset "UTF-8";
+
+.infobox h6 {
+	display: inline;
+}
+
+.infobox span {
+	float: right;
+	text-align: left;
+}
+
+.infochangebutton span {
+	float: right;
+}
+
+
+/***********************************************************************************/
+.favorite-item h4, .favorite-item p {
+	color: black;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.favorite-item a {
+	text-decoration: none;
+}
+
+.favorite-item-diag {
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 20px;
+}
+
+
+
+.favorite-btn .favorite-set {
+	background-color: white;
+	border: none;
+	font-size: 20px;
+	color: #555;
+}
+
+
+
+
+
+.favorite-btn .dropdown-item {
+	font-family: 메이플스토리;
+}
+
+
+.favorite-thumb {
+	width: 150px;
+	height: 120px;
+}
+
+.favorite-text {
+	font-family: 메이플스토리1;
+}
+
+
+@font-face {
+	font-family: 메이플스토리1;
+	src: url(../font/MaplestoryLight.woff) format('woff'),
+		url(../font/MaplestoryLight.ttf) format('ttf');
+}
+
+@font-face {
+	font-family: 메이플스토리2;
+	src: url(../font/MaplestoryBold.woff) format('woff'),
+		url(../font/MaplestoryBold.ttf) format('ttf');
+}
+

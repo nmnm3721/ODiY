@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+.container {
+	padding-top: 20px;
+}
+
+#bot-container {
+	color: white;
+	margin: auto;
+	max-width: 1024px;
+	background-color: #343838;
+}
+
+.container #bot-row {
+	margin: auto;
+	padding: 0;
+	height: 100%;
+}
+
+.footer-text {
+	font-family: 메이플스토리;
+	text-align: left;
+}
+
+@font-face {
+  font-family: 메이플스토리;
+  src: url(../font/MaplestoryBold.woff) format('woff'),
+  		url(../font/MaplestoryBold.ttf) format('ttf');
+}

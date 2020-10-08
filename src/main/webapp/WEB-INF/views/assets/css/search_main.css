@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+.smain a, .smain a:hover, .smain a:active {
+	color: #343838;
+	text-decoration: none;
+}
+
+.smain .left .box {
+	padding: 0px;
+}
+
+.smain .left:hover, .smain .left:active {
+	border: 1px dotted #00afcc;
+	border-radius: 10px;
+	box-shadow: 0px 0px 5px #009fbc;
+}
+
+.container {
+	position: static;
+	max-width: 1024px;
+}
+
+.left, .right {
+	display: block;
+	height: 160px;
+}
+
+.left {
+	padding-top: 4px;
+	margin-left: -20px;
+}
+
+.right {
+	padding-top: 40px;
+	margin-right: -20px;
+}
+
+.left img {
+	border-radius: 10px;
+	width: 180px;
+	height: 150px;
+}
+
+.page-header {
+	text-align: center;
+}
+
+.page-header .input-group {
+	margin: auto;
+	width: 50%;
+}
+
+.smain {
+	padding: 20px 0 20px 0;
+	border-bottom: 1px solid #ccc;
+}
+
+.right .favorite {
+	text-align: center;
+}
+
+.left .box {
+	margin-right: 20px;
+	float: left;
+}
+
+.left h4, .left p {
+	font-family: 메이플스토리1;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+#search {
+	background: #fff;
+	color: #00dffc;
+}
+/**체크박스 꾸미기**/
+.favorite {
+	display: block;
+	width: 90px;
+	height: 50px;
+	margin: auto;
+	cursor: pointer;
+}
+
+.favorite>.btn {
+	text-align: center;
+	font-size: 18px;
+	border-color: #00dffc;
+	background-color: #fff;
+	color: #00dffc;
+}
+
+.favorite>.btn:hover, .right>.favorite>.btn:active {
+	color: #00dffc;
+	border-color: #343838;
+	background-color: #343838;
+}
+
+.favorite>.btn>.fa-star {
+	display: none;
+}
+
+@media screen and (max-width: 720px) {
+	.favorite>.btn {
+		width: 48px;
+		height: 48px;
+		margin-left: -20px;
+	}
+	.favorite>.btn>span{
+		display: none;
+	}
+	.favorite>.btn>.fa-star {
+		text-align: center;
+		display: block;
+	}
+}
+/**체크박스꾸미기 끝**/
+@font-face {
+	font-family: 메이플스토리1;
+	src: url(../font/MaplestoryLight.woff) format('woff'),
+		url(../font/MaplestoryLight.ttf) format('ttf');
+}
+
+@font-face {
+	font-family: 메이플스토리2;
+	src: url(../font/MaplestoryBold.woff) format('woff'),
+		url(../font/MaplestoryBold.ttf) format('ttf');
+}
+
+/** 페이지 넘버링 */
+.page-numbering {
+	font-family: 메이플스토리1;
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 20px;
+}

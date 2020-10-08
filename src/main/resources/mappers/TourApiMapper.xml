@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="TourApiMapper">
+
+	<resultMap id="tourApiMap"
+		type="org.odiy.spring.model.ApiItem">
+		<!-- property는 beans이름, column은 DB컬럼명 -->
+		<result property="contentid" column="contentid" />
+		<result property="sigungucode" column="sigungucode" />
+		<result property="createdtime" column="createdtime" />
+		<result property="modifiedtime" column="modifiedtime" />
+		<result property="addr1" column="addr1" />
+		<result property="addr2" column="addr2" />
+		<result property="contenttypeid" column="contenttypeid" />
+		<result property="cat1" column="cat1" />
+		<result property="cat2" column="cat2" />
+		<result property="cat3" column="cat3" />
+		<result property="firstimage" column="firstimage" />
+		<result property="firstimage2" column="firstimage2" />
+		<result property="mapx" column="mapx" />
+		<result property="mapy" column="mapy" />
+		<result property="title" column="title" />
+		<result property="zipcode" column="zipcode" />
+		<result property="tel" column="tel" />
+		<result property="readcount" column="readcount" />
+		<result property="areacode" column="areacode" />
+	</resultMap>
+
+
+
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="org.odiy.spring.model.ApiItem"
+		resultMap="tourApiMap">
+		SELECT contentid, sigungucode,
+		DATE_FORMAT(createdtime, "%Y-%m-%d") AS createdtime,
+		DATE_FORMAT(modifiedtime, "%Y-%m-%d") AS modifiedtime,
+		addr1, addr2, contenttypeid, cat1, cat2, cat3, areacode,
+		firstimage, firstimage2, mapx, mapy,
+		title, zipcode, tel, readcount 
+		FROM tourapi
+		WHERE contentid=#{contentid}
+	</select>
+
+
+	<!-- 데이터 수 조회를 위한 기능 정의 -->
+	<select id="selectCountAll"
+		parameterType="org.odiy.spring.model.ApiItem" resultType="int">
+
+		SELECT COUNT(*)
+		FROM tourapi
+
+		<where>
+			<if test="title != null and title != ''">
+				REPLACE(title, " ", "") LIKE concat("%", #{title}, "%")
+				OR addr1 LIKE concat("%", #{title}, "%")
+			</if>
+			<if test="tourEatZzz!=null and tourEatZzz!='' ">
+				AND
+				<if test='tourEatZzz.equals("tour")'>
+					contenttypeid IS NOT NULL
+				</if>
+				<if test='tourEatZzz.equals("eat")'>
+					contenttypeid=39
+				</if>
+				<if test='tourEatZzz.equals("zzz")'>
+					contenttypeid=32
+				</if>
+			</if>
+		</where>
+
+	</select>
+
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList"
+		parameterType="org.odiy.spring.model.ApiItem" resultMap="tourApiMap">
+
+		SELECT contentid, sigungucode,
+		DATE_FORMAT(createdtime, "%Y-%m-%d") AS createdtime,
+		DATE_FORMAT(modifiedtime, "%Y-%m-%d") AS modifiedtime,
+		addr1, addr2,
+		contenttypeid, cat1, cat2, cat3, areacode,
+		firstimage, firstimage2,
+		mapx, mapy,
+		title, zipcode, tel, readcount
+		FROM tourapi
+		<where>
+			<if test="title != null and title != ''">
+				REPLACE(title, " ", "") LIKE concat("%", #{title}, "%")
+				OR addr1 LIKE concat("%", #{title}, "%")
+			</if>
+			<if test="tourEatZzz!=null and tourEatZzz!='' ">
+				AND
+				<if test='tourEatZzz.equals("tour")'>
+					contenttypeid IS NOT NULL
+				</if>
+				<if test='tourEatZzz.equals("eat")'>
+					contenttypeid=39
+				</if>
+				<if test='tourEatZzz.equals("zzz")'>
+					contenttypeid=32
+				</if>
+			</if>
+		</where>
+			<if test="desc!=null and desc!='' ">
+				ORDER BY
+			<if test='desc.equals("createdtime-desc")'>
+					createdtime DESC ,
+			</if>
+			<if test='desc.equals("readcount-desc")'>
+					readcount DESC ,
+			</if>
+			<if test='desc.equals("title")'>
+					title ,
+			</if>
+				contentid DESC
+		</if>
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의(메인배너이미지) -->
+	<select id="selectImage"
+		parameterType="org.odiy.spring.model.ApiItem" resultMap="tourApiMap">
+
+		SELECT contentid, sigungucode,
+		DATE_FORMAT(createdtime, "%Y-%m-%d") AS
+		createdtime,
+		DATE_FORMAT(modifiedtime, "%Y-%m-%d") AS modifiedtime,
+		addr1, addr2,
+		contenttypeid, cat1, cat2, cat3, areacode,
+		firstimage, firstimage2,
+		mapx, mapy,
+		title, zipcode, tel, readcount
+		FROM tourapi
+
+		WHERE firstimage is not null
+
+		ORDER BY rand()
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+
+	</select>
+
+
+	<!-- 다중행 조회를 위한 기능 정의(오늘의추천이미지) -->
+	<select id="selectRecommend"
+		parameterType="org.odiy.spring.model.ApiItem" resultMap="tourApiMap">
+
+		SELECT contentid, addr1, sigungucode,
+		contenttypeid, cat1, cat2, cat3,
+		firstimage, mapx, mapy, title
+		FROM tourapi
+
+		WHERE firstimage is not null
+		<if test="contenttypeid == null">
+			and readcount > 100000
+		</if>
+		<if test="contenttypeid != null">
+			and readcount > 20000 and contenttypeid=#{contenttypeid}
+		</if>
+
+		ORDER BY rand()
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+
+	</select>
+	
+	
+	<!-- 다중행 조회를 위한 기능 정의(상세페이지 추천) -->
+	<select id="selectDetailRecommend"
+		parameterType="org.odiy.spring.model.ApiItem" resultMap="tourApiMap">
+
+		SELECT contentid, contenttypeid, title, firstimage, mapx, mapy
+		FROM tourapi
+		
+		WHERE firstimage is not null and
+		mapx &gt; #{mapx}-0.03 and mapx &lt; #{mapx}+0.03 and
+		mapy &gt; #{mapy}-0.03 and mapy &lt; #{mapy}+0.03
+		
+		ORDER BY rand()
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+
+	</select>
+	
+	<!-- 다중행 조회를 위한 기능 정의(상세페이지 축제) -->
+	<select id="selectDetailFestival"
+		parameterType="org.odiy.spring.model.ApiItem" resultMap="tourApiMap">
+
+		SELECT contentid, contenttypeid, title, firstimage, mapx, mapy
+		FROM tourapi
+		
+		WHERE firstimage is not null and contenttypeid=#{contenttypeid} and
+		mapx &gt; #{mapx}-0.03 and mapx &lt; #{mapx}+0.03 and
+		mapy &gt; #{mapy}-0.03 and mapy &lt; #{mapy}+0.03
+		
+		ORDER BY rand()
+
+		<if test="listCount > 0">
+			LIMIT #{offset}, #{listCount}
+		</if>
+
+	</select>
+	
+
+
+	<!-- TourAPI 기본 데이터 저장 -->
+	<insert id="insertItem"
+		parameterType="org.odiy.spring.model.TourApi$Response$Body$Items$Item">
+		INSERT INTO tourapi (
+		contentid, sigungucode,
+		createdtime, modifiedtime, addr1,
+		addr2, contenttypeid,
+		cat1, cat2,
+		cat3, areacode, firstimage, firstimage2, mapx,
+		mapy, readcount,
+		title, zipcode,
+		tel
+		) VALUES (
+		#{contentid}, #{sigungucode}, #{createdtime},
+		#{modifiedtime}, #{addr1}, #{addr2},
+		#{contenttypeid}, #{cat1},
+		#{cat2}, #{cat3}, #{areacode}, #{firstimage},
+		#{firstimage2}, #{mapx}, #{mapy},
+		#{readcount}, #{title}, #{zipcode},
+		#{tel}
+		);
+	</insert>
+
+	<!-- TourAPI 기본 데이터 중복시 업데이트 -->
+	<update id="updateItem"
+		parameterType="org.odiy.spring.model.TourApi$Response$Body$Items$Item">
+		UPDATE tourapi SET
+		sigungucode = #{sigungucode},
+		createdtime = #{createdtime},
+		modifiedtime = #{modifiedtime},
+		addr1 = #{addr1},
+		addr2 = #{addr2},
+		contenttypeid = #{contenttypeid},
+		cat1 = #{cat1},
+		cat2 = #{cat2},
+		cat3 = #{cat3},
+		areacode = #{areacode},
+		firstimage = #{firstimage},
+		firstimage2 = #{firstimage2},
+		mapx =
+		#{mapx},
+		mapy = #{mapy},
+		readcount = #{readcount},
+		title = #{title},
+		zipcode = #{zipcode},
+		tel = #{tel}
+		WHERE contentid = #{contentid};
+	</update>
+	
+	<!-- tourapi 테이블 전체 삭제  -->
+	<delete id="deleteAll" parameterType="org.odiy.spring.model.TourApi$Response$Body$Items$Item">
+		DELETE FROM tourapi;
+	</delete>
+</mapper>

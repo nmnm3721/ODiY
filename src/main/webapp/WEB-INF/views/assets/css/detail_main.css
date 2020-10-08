@@ -1,0 +1,167 @@
+@charset "UTF-8";
+
+input {
+	border: 1px solid orange;
+}
+
+.pick-size {
+	width: 300px;
+	height: 300px;
+	margin: auto;
+}
+
+.mapping {
+	width: 100%;
+}
+
+.my_container * {
+	margin: 0;
+	padding: 0;
+}
+
+/**상세정보 사진,글 사이즈 주고 스크롤줌**/
+.kuwasii-img {
+	width: 450px;
+	height: 300px;
+	padding: 10px;
+}
+
+.kuwasii-kaki {
+	width: 450px;
+	height: 300px;
+	overflow: auto;
+	padding: 10px;
+}
+
+/**체크박스**/
+.favorite {
+	text-align: right;
+	margin-bottom: 10px;
+}
+
+.favorite>.btn {
+	font-size: 18px;
+	border-color: #00dffc;
+	background-color: #fff;
+	color: #00dffc;
+}
+
+.favorite>.btn:hover, .container>.favorite>.btn:active {
+	color: #00dffc;
+	border-color: #343838;
+	background-color: #343838;
+}
+
+/**!체크박스완료!**/
+/**아이콘**/
+.icon1 li, .icon2 li {
+	width: 25%;
+	height: 96px;
+	float: left;
+}
+
+ul {
+	list-style: none;
+}
+
+.icon1 span, .icon2 span {
+	display: block;
+	width: 90px;
+	height: 81px;
+	margin: auto;
+	padding-top: 15px;
+	font: 12px "굴림";
+}
+
+.item .txt {
+	font-size: 0.8em;
+	display: block;
+	width: auto;
+	text-align: center;
+	padding-top: 5px;
+}
+
+.icon_blank {
+	width: 2px;
+}
+
+.item>div {
+	width: 102px;
+	float: left;
+	text-align: center;
+	margin-top: 10;
+	margin-bottom: 15px;
+}
+
+.icon1 i, .icon2 i {
+	display: block;
+	width: 56px;
+	height: 56px;
+	margin: auto;
+	text-align: center;
+}
+
+/**아이콘완료!**/
+
+/**********************************************************************/
+.kuwasii-img img {
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.detail-subtitle {
+	font-family: 메이플스토리2;
+}
+
+.detail-intro {
+	font-family: 메이플스토리1;
+}
+
+.detail-intro-text {
+	size: 3;
+	font-family: 메이플스토리1;
+}
+
+
+#detail-map {
+	margin: auto;
+	width: 90%;
+	height: 720px;
+}
+
+#detail-roadview{
+	margin: auto;
+	width: 90%;
+	height: 300px;
+}
+
+.detail-recommend-title, .detail-recommend-title:hover {
+	text-align: center;
+	font-family: 메이플스토리1;
+	text-decoration: none;
+	color: #222;
+}
+
+/*********************************/
+
+.detail-recommend-thum {
+	text-align: center;
+	margin: auto;
+}
+
+
+
+
+/************************/
+@font-face {
+	font-family: 메이플스토리1;
+	src: url(../font/MaplestoryLight.woff) format('woff'),
+		url(../font/MaplestoryLight.ttf) format('ttf');
+}
+
+@font-face {
+	font-family: 메이플스토리2;
+	src: url(../font/MaplestoryBold.woff) format('woff'),
+		url(../font/MaplestoryBold.ttf) format('ttf');
+}
