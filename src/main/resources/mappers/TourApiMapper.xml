@@ -89,11 +89,9 @@
 		FROM tourapi
 		<where>
 			<if test="title != null and title != ''">
-				REPLACE(title, " ", "") LIKE concat("%", #{title}, "%")
-				OR addr1 LIKE concat("%", #{title}, "%")
+				(REPLACE(title, " ", "") LIKE concat("%", #{title}, "%")
+				OR addr1 LIKE concat("%", #{title}, "%")) AND
 			</if>
-			<if test="tourEatZzz!=null and tourEatZzz!='' ">
-				AND
 				<if test='tourEatZzz.equals("tour")'>
 					contenttypeid IS NOT NULL
 				</if>
@@ -103,7 +101,6 @@
 				<if test='tourEatZzz.equals("zzz")'>
 					contenttypeid=32
 				</if>
-			</if>
 		</where>
 			<if test="desc!=null and desc!='' ">
 				ORDER BY

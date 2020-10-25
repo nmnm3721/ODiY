@@ -76,7 +76,7 @@ $( () => {
 	let detail_desc="";
 	$("#ds_desc .form-check-input").change(function() {
 		// 체크박스에 변경이 일어나면 각 체크박스 중 체크 된 체크박스 value값을 hidden input에 전달
-		detail_desc+=$("#ds_desc .form-check-input:checked").val();
+		detail_desc=$("#ds_desc .form-check-input:checked").val();
 		$(".detail_desc").val(detail_desc);
 	});
 	
