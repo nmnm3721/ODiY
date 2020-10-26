@@ -1,0 +1,5 @@
+user-agent: *
+disallow: /detailpage/
+
+user-agent: *
+allow: /
