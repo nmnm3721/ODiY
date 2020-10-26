@@ -89,6 +89,8 @@
 				<c:url value="/search/search.do" var="prevPageUrl">
 					<c:param name="page" value="${pageData.prevPage}"></c:param>
 					<c:param name="keyword" value="${keyword}"></c:param>
+					<c:param name="tour_eat_zzz" value="${tour_eat_zzz}"></c:param>
+					<c:param name="detail_desc" value="${detail_desc}"></c:param>
 				</c:url>
 				<a href="${prevPageUrl}">[이전]</a>
 			</c:when>
@@ -108,7 +110,7 @@
 				<c:param name="page" value="${i}"></c:param>
 				<c:param name="keyword" value="${keyword}"></c:param>
 				<c:param name="tour_eat_zzz" value="${tour_eat_zzz}"></c:param>
-				<c:param name="desc" value="${detail_desc}"></c:param>
+				<c:param name="detail_desc" value="${detail_desc}"></c:param>
 			</c:url>
 
 			<%-- 페이지 번호 출력 --%>
@@ -133,6 +135,8 @@
 				<c:url value="/search/search.do" var="nextPageUrl">
 					<c:param name="page" value="${pageData.nextPage}"></c:param>
 					<c:param name="keyword" value="${keyword}"></c:param>
+					<c:param name="tour_eat_zzz" value="${tour_eat_zzz}"></c:param>
+					<c:param name="detail_desc" value="${detail_desc}"></c:param>
 				</c:url>
 				<a href="${nextPageUrl}">[다음]</a>
 			</c:when>

@@ -47,13 +47,13 @@ public class SearchController {
 			// 검색어
 			@RequestParam(value = "keyword", required = false) String keyword,
 			// 여행지식당숙박
-			@RequestParam(value="tour_eat_zzz", defaultValue="tour") String tour_eat_zzz,
+			@RequestParam(value="tour_eat_zzz", required=false) String tour_eat_zzz,
 			// 지역코드
 //			@RequestParam(value="detail_area", required=false) String detail_area,
 			// 분류코드
 //			@RequestParam(value="detail_cat1", required=false) String detail_cat1,
 			// 정렬
-			@RequestParam(value="detail_desc", defaultValue="createdtime-desc") String detail_desc,
+			@RequestParam(value="detail_desc", required=false) String detail_desc,
 			// 페이지 구현에서 사용할 현재 페이지 번호
 			@RequestParam(value = "page", defaultValue = "1") int nowPage) {
 
