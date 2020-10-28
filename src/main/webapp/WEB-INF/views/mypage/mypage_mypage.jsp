@@ -18,76 +18,97 @@
 
 
 
-<form method="post"
-	action="${pageContext.request.contextPath}/mypage/mypage.do"
-	enctype="multipart/form-data">
-	<input type ="hidden" name="user_num" value="${login_session_value.getUserNum()}">
+	<form method="post"
+		action="${pageContext.request.contextPath}/mypage/mypage.do"
+		enctype="multipart/form-data">
+		<input type="hidden" name="user_num"
+			value="${login_session_value.getUserNum()}">
 
-	<div class="row  myinfo">
+		<div class="row  myinfo">
 
 
-		<div class="col-md-4 col-4 profilepic">
+			<div class="col-md-4 col-4 profilepic"></div>
+
+			<div class="col-md-4 col-4 infobox">
+				<p>
+				<h6>아이디</h6>
+				${login_session_value.getUserEmail()}
+				</p>
+				<p>
+				<h6>닉네임</h6>
+				${login_session_value.getUserName()}
+				</p>
+				<p>
+				<h6>비밀번호</h6>
+				****
+				</p>
+			</div>
+			<div style="clear: both" class="col-md-4 col-4 infochangebutton">
+				<span>
+					<button type="button"
+						class="btn btn-outline-primary infochange_btn">회원정보 변경</button>
+				</span>
+			</div>
+
+		</div>
+
+		<div class="row  myinfochange hidden">
+
+
+
+
+			<div class="col-md-4col-4 infobox">
+				<p>
+				<h6>아이디</h6>
+				${login_session_value.getUserEmail()}
+				</p>
+				<p>
+				<h6>이름</h6>
+				<input type="name" id="user_name" name="user_name"
+					class="form-control" placeholder="바꿀 닉네임">
+				</p>
+
+				<p>
+				<h6>바꿀 비밀번호</h6>
+				<input type="password" id="user_pw" name="user_pw"
+					class="form-control" placeholder="바꿀비밀번호">
+				</p>
+
+			</div>
+			<div style="clear: both"></div>
+			<div class="col-md-4 col-4 infochangebutton">
+				<span>
+					<button type="submit"
+						class="btn btn-outline-primary infochange_btn_done">수정완료</button>
+				</span>
+
+			</div>
 			
+
 		</div>
-
-		<div class="col-md-4 col-4 infobox">
-			<p>
-			<h6>아이디</h6>
-			${login_session_value.getUserEmail()}
-			</p>
-			<p>
-			<h6>닉네임</h6>
-			${login_session_value.getUserName()}
-			</p>
-			<p>
-			<h6>비밀번호</h6>
-			****
-			</p>
-		</div>
-		<div style="clear: both" class="col-md-4 col-4 infochangebutton">
-			<span>
-				<button type="button" class="btn btn-outline-primary infochange_btn">회원정보
-					변경</button>
-			</span>
-		</div>
-
-	</div>
-
-	<div class="row  myinfochange hidden">
-
-
+		
+	</form>
 	
-
-		<div class="col-md-4col-4 infobox">
-			<p>
-			<h6>아이디</h6>
-			${login_session_value.getUserEmail()}
-			</p>
-			<p>
-			<h6>이름</h6>
-			<input type="name" id="user_name" name="user_name"
-				class="form-control" placeholder="바꿀 닉네임" >
-			</p>
+	
+	<form method="post"
+		action="${pageContext.request.contextPath}/mypage/mypageout.do">
+		<input type="hidden" name="user_num"
+			value="${login_session_value.getUserNum()}">
 			
-			<p>
-			<h6>바꿀 비밀번호</h6>
-			<input type="password" id="user_pw" name="user_pw"
-				class="form-control" placeholder="바꿀비밀번호" >
-			</p>
 			
-		</div>
-		<div style="clear: both"></div>
-		<div class="col-md-4 col-4 infochangebutton">
-			<span>
-				<button type="submit"
-					class="btn btn-outline-primary infochange_btn_done">수정완료</button>
-			</span>
+			
+			
+			<div class=" infochangebutton">
+				<span>
+					<button  type="submit"
+						class="btn btn-outline-danger infochange_btn_done">회원탈퇴</button>
+				</span>
 
-		</div>
-
-	</div>
-</form>
-
+			</div>
+		</form>
+		
+<br />
+<br />
 
 	<!--MY INFO 끝-->
 	<!--MY FAVORITE 시작-->
@@ -123,14 +144,13 @@
 					<div class="row col-sm-6 favorite-item-diag">
 
 						<div class="col-md-4 fav-thumbnail">
-							<a href="${detailURL}">
-								<c:choose>
+							<a href="${detailURL}"> <c:choose>
 									<c:when test="${empty item.firstimage2}">
 										<img
 											src="https://via.placeholder.com/150x120/CCC/222/?text=No Image" />
 									</c:when>
 									<c:otherwise>
-										<img src="${item.firstimage2}"  class="favorite-thumb"/>
+										<img src="${item.firstimage2}" class="favorite-thumb" />
 									</c:otherwise>
 								</c:choose>
 							</a>
@@ -155,7 +175,8 @@
 								<form method="post"
 									action="${pageContext.request.contextPath}/favorite_del.do">
 									<input type="hidden" name="contentid" value="${item.contentid}" />
-									<input type="hidden" name="userNum" value="${login_session_value.getUserNum()}" />
+									<input type="hidden" name="userNum"
+										value="${login_session_value.getUserNum()}" />
 									<button class="dropdown-item" type="submit">즐겨찾기 삭제</button>
 								</form>
 							</div>
@@ -168,7 +189,7 @@
 		</c:choose>
 
 	</div>
-	
+
 
 
 </div>
@@ -178,15 +199,11 @@
 	$(".myinfochange").hide(function() {
 	});
 	// With the element initially shown, we can hide it slowly:
-	$(".infochange_btn").click(
-			function() {
-				$(".myinfo").hide("slow", function() {
-				});
-				$(".myinfochange").removeClass("hidden").show(
-						"slow", function() {
-						});
-				;
-			});
-
-	
+	$(".infochange_btn").click(function() {
+		$(".myinfo").hide("slow", function() {
+		});
+		$(".myinfochange").removeClass("hidden").show("slow", function() {
+		});
+		;
+	});
 </script>

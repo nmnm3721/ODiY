@@ -139,5 +139,33 @@ public class MypageController {
 		/** 4) 결과 표시 */
 		return webHelper.redirect(redirectUrl, "수정완료!");
 	}
+	
+	@RequestMapping(value = "mypage/mypageout", method = RequestMethod.POST)
+	public ModelAndView mypageout(Model model,
+			@RequestParam(value = "user_num", defaultValue = "0") int userNum) {
+		// 1>파라미터 유효성검사 값존재안할때
+		if (userNum == 0) {
+			return webHelper.redirect(null, "유저번호가 없습니다");
+		}
+
+		// 데이터 조회
+		/** 3) 데이터 삭제 */
+		User input = new User();
+		input.setUserNum(userNum);
+		input.setIsAdmin("N"); // 관리자 아님
+		input.setIsOut("N"); // 탈퇴아님 --> 탈퇴시 'Y'로 업데이트
+
+		try {
+			userService.deleteUser(input);
+		} catch (Exception e) {
+			return webHelper.redirect(null, e.getLocalizedMessage());
+		}
+
+
+		String redirectUrl = contextPath + "/mypage/mypageout.do?userNum=" + userNum;
+
+		/** 4) 결과 표시 */
+		return webHelper.redirect(contextPath+"/", "탈퇴완료!");
+	}
 
 }
