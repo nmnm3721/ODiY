@@ -165,7 +165,7 @@ public class MypageController {
 		String redirectUrl = contextPath + "/mypage/mypageout.do?userNum=" + userNum;
 
 		/** 4) 결과 표시 */
-		return webHelper.redirect(contextPath+"/", "탈퇴완료!");
+		return webHelper.redirect(contextPath+"/login/logout.do", "탈퇴완료!");
 	}
 
 }

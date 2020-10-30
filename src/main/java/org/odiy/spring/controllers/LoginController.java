@@ -79,7 +79,7 @@ public class LoginController {
     @RequestMapping(value="login/logout.do")
     public ModelAndView logout(HttpSession session) {
     	session.invalidate();
-    	return webHelper.redirect(contextPath+"/", "로그아웃 되었습니다.");
+    	return webHelper.redirect(contextPath+"/", null);
     }
 
 }
