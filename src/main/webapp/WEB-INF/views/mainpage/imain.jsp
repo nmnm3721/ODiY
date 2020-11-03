@@ -113,8 +113,7 @@
 	</div>
 	<!-- 지도 -->
 	<div class="container arround-container" id="map">
-		<button type="button"
-			class="btn btn-primary arround-btn arround-group">
+		<button class="btn btn-primary arround-btn arround-group" onclick="returnCurrent();">
 			<i class="fas fa-crosshairs"></i>
 		</button>
 	</div>
@@ -128,50 +127,64 @@
 	<!-- 현재위치 -->
 
 	<script>
+	
+	var latitude = 37.502542;
+        var longitude = 127.024824;
+        var mapContainer = document.getElementById("map")    // 지도를 표시할 DIV
+        var mapOption = {
+              center : new daum.maps.LatLng(37.502542, 127.024824)    // 지도의 중심좌표
+            , level : 3    // 지도의 확대레벨
+        };
+        
+        // 지도를 생성
+        var map;
+
+        // 마커가 표시될 위치
+        var markerPosition;
+
+        // 마커를 생성
+	var marker;
+	
 	document.addEventListener("DOMContentLoaded", function() {
 	 	       function getLocation(position) {
 		
-		            var latitud = position.coords.latitude;
-		            var longitude = position.coords.longitude;
+		            latitude = position.coords.latitude;
+		            longitude = position.coords.longitude;
 		        
-		            var mapContainer = document.getElementById("map")    // 지도를 표시할 DIV
 		            var mapOption = {
-		                  center : new daum.maps.LatLng(latitud, longitude)    // 지도의 중심좌표
-		                , level : 3    // 지도의 확대레벨
+		        	              center : new daum.maps.LatLng(latitude, longitude)    // 지도의 중심좌표
+		        	            , level : 3    // 지도의 확대레벨
 		            };
-		            
+		           		            
 		            // 지도를 생성
-		            var map = new daum.maps.Map(mapContainer, mapOption);
+		            map = new daum.maps.Map(mapContainer, mapOption);
 		
 		            // 마커가 표시될 위치
-		            var markerPosition = new daum.maps.LatLng(latitud, longitude);
+		            markerPosition = new daum.maps.LatLng(latitude, longitude);
 		
 		            // 마커를 생성
-			    var marker = new daum.maps.Marker({ position:markerPosition });
+			    marker = new daum.maps.Marker({ position:markerPosition });
 		
 		            marker.setMap(map);
 		        }
-		
+	 	      
+	 	       
+	 	     
 		        if(navigator.geolocation) {
 		            navigator.geolocation.getCurrentPosition(getLocation, function(error) {
 		        	    
-		        	    var latitude = 37.502542;
-		    		    var longitude = 127.024824;
+		        	    latitude = 37.502542;
+		    		    longitude = 127.024824;
 			        
-			            var mapContainer = document.getElementById("map")    // 지도를 표시할 DIV
-			            var mapOption = {
-			                  center : new daum.maps.LatLng(latitud, longitude)    // 지도의 중심좌표
-			                , level : 3    // 지도의 확대레벨
-			            };
 			            
 			            // 지도를 생성
-			            var map = new daum.maps.Map(mapContainer, mapOption);
+			            map = new daum.maps.Map(mapContainer, mapOption);
 			
 			            // 마커가 표시될 위치
-			            var markerPosition = new daum.maps.LatLng(latitud, longitude);
+			            markerPosition = new daum.maps.LatLng(latitude, longitude);
 			
 			            // 마커를 생성
-				    var marker = new daum.maps.Marker({ position:markerPosition });
+				    marker = new daum.maps.Marker({ position:markerPosition });
 			
 			            marker.setMap(map);
 		                consol.log(error.message);    
@@ -180,6 +193,25 @@
 		            consol.log("Geolocation을 지원하지 않는 브라우저 입니다.");
 		        }
 		});
+	
+	function returnCurrent() {
+	    	
+		marker.setVisible(false);
+		
+		// 마커가 표시될 위치
+	            markerPosition = new daum.maps.LatLng(latitude, longitude);
+	
+	            // 마커를 생성
+		    marker = new daum.maps.Marker({ position:markerPosition });
+		    marker.setMap(map);
+	            
+		
+	           var moveLatLon = new kakao.maps.LatLng(latitude, longitude);
+		    
+		    // 지도 중심을 이동 시킵니다
+		    map.setCenter(moveLatLon);
+	}
+	
 	</script>
 
 	<!-- --------------------------------------------------- -->

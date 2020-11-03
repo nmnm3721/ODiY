@@ -101,7 +101,7 @@
 			<div class=" infochangebutton">
 				<span>
 					<button  type="submit"
-						class="btn btn-outline-danger infochange_btn_done">회원탈퇴</button>
+						class="btn btn-outline-danger infochange_btn_done hidden">회원탈퇴</button>
 				</span>
 
 			</div>
