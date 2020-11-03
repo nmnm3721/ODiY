@@ -117,28 +117,6 @@
 			class="btn btn-primary arround-btn arround-group">
 			<i class="fas fa-crosshairs"></i>
 		</button>
-		<div class="dropdown arround-dropdown1 arround-group">
-			<button class="btn btn-secondary dropdown-toggle arround-drop"
-				type="button" id="dropdownMenu2" data-toggle="dropdown"
-				aria-haspopup="true" aria-expanded="false">Dropdown</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-				<button class="dropdown-item" type="button">Action</button>
-				<button class="dropdown-item" type="button">Another action</button>
-				<button class="dropdown-item" type="button">Something else
-					here</button>
-			</div>
-		</div>
-		<div class="dropdown arround-dropdown2 arround-group">
-			<button class="btn btn-secondary dropdown-toggle arround-drop"
-				type="button" id="dropdownMenu2" data-toggle="dropdown"
-				aria-haspopup="true" aria-expanded="false">Dropdown</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-				<button class="dropdown-item" type="button">Action</button>
-				<button class="dropdown-item" type="button">Another action</button>
-				<button class="dropdown-item" type="button">Something else
-					here</button>
-			</div>
-		</div>
 	</div>
 
 
@@ -146,20 +124,65 @@
 
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c4a66835ae932c4af82e8a731c0b876f"></script>
+		
+	<!-- 현재위치 -->
 
 	<script>
-		var container = document.getElementById("map");
-		var latitude = 37.502542;
-		var longitude = 127.024824;
-		var options = {
-			center : new kakao.maps.LatLng(latitude, longitude),
-			level : 3
-		};
-
-		var map = new kakao.maps.Map(container, options);
+	document.addEventListener("DOMContentLoaded", function() {
+	 	       function getLocation(position) {
+		
+		            var latitud = position.coords.latitude;
+		            var longitude = position.coords.longitude;
+		        
+		            var mapContainer = document.getElementById("map")    // 지도를 표시할 DIV
+		            var mapOption = {
+		                  center : new daum.maps.LatLng(latitud, longitude)    // 지도의 중심좌표
+		                , level : 3    // 지도의 확대레벨
+		            };
+		            
+		            // 지도를 생성
+		            var map = new daum.maps.Map(mapContainer, mapOption);
+		
+		            // 마커가 표시될 위치
+		            var markerPosition = new daum.maps.LatLng(latitud, longitude);
+		
+		            // 마커를 생성
+			    var marker = new daum.maps.Marker({ position:markerPosition });
+		
+		            marker.setMap(map);
+		        }
+		
+		        if(navigator.geolocation) {
+		            navigator.geolocation.getCurrentPosition(getLocation, function(error) {
+		        	    
+		        	    var latitude = 37.502542;
+		    		    var longitude = 127.024824;
+			        
+			            var mapContainer = document.getElementById("map")    // 지도를 표시할 DIV
+			            var mapOption = {
+			                  center : new daum.maps.LatLng(latitud, longitude)    // 지도의 중심좌표
+			                , level : 3    // 지도의 확대레벨
+			            };
+			            
+			            // 지도를 생성
+			            var map = new daum.maps.Map(mapContainer, mapOption);
+			
+			            // 마커가 표시될 위치
+			            var markerPosition = new daum.maps.LatLng(latitud, longitude);
+			
+			            // 마커를 생성
+				    var marker = new daum.maps.Marker({ position:markerPosition });
+			
+			            marker.setMap(map);
+		                consol.log(error.message);    
+		            });
+		        } else {
+		            consol.log("Geolocation을 지원하지 않는 브라우저 입니다.");
+		        }
+		});
 	</script>
 
-
+	<!-- --------------------------------------------------- -->
 
 	<script>
 		/* Swiper */
