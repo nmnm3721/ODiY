@@ -147,13 +147,15 @@
         // 마커를 생성
 	var marker;
 	
-	document.addEventListener("DOMContentLoaded", function() {
-	 	       function getLocation(position) {
-		
-		            latitude = position.coords.latitude;
-		            longitude = position.coords.longitude;
+	if (navigator.geolocation) {
+		    
+		    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+		    navigator.geolocation.getCurrentPosition(function(position) {
 		        
-		            var mapOption = {
+			    latitude = position.coords.latitude; // 위도
+			    longitude = position.coords.longitude; // 경도
+		        
+			    mapOption = {
 		        	              center : new daum.maps.LatLng(latitude, longitude)    // 지도의 중심좌표
 		        	            , level : 3    // 지도의 확대레벨
 		            };
@@ -168,34 +170,30 @@
 			    marker = new daum.maps.Marker({ position:markerPosition });
 		
 		            marker.setMap(map);
-		        }
-	 	      
-	 	       
-	 	     
-		        if(navigator.geolocation) {
-		            navigator.geolocation.getCurrentPosition(getLocation, function(error) {
-		        	    
-		        	    latitude = 37.502542;
-		    		    longitude = 127.024824;
-			        
-			            
-			            // 지도를 생성
-			            map = new daum.maps.Map(mapContainer, mapOption);
-			
-			            // 마커가 표시될 위치
-			            markerPosition = new daum.maps.LatLng(latitude, longitude);
-			
-			            // 마커를 생성
-				    marker = new daum.maps.Marker({ position:markerPosition });
-			
-			            marker.setMap(map);
-		                consol.log(error.message);    
-		            });
-		        } else {
-		            consol.log("Geolocation을 지원하지 않는 브라우저 입니다.");
-		        }
-		});
+		            
+		      });
+		    
+	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+		    
+		latitude = 37.502542;
+		    longitude = 127.024824;
+	        
+	            
+	            // 지도를 생성
+	            map = new daum.maps.Map(mapContainer, mapOption);
 	
+	            // 마커가 표시될 위치
+	            markerPosition = new daum.maps.LatLng(latitude, longitude);
+	
+	            // 마커를 생성
+		    marker = new daum.maps.Marker({ position:markerPosition });
+	
+	            marker.setMap(map);
+	            
+	            
+            consol.log(error.message);
+	}
+       
 	function returnCurrent() {
 	    	
 		marker.setVisible(false);
