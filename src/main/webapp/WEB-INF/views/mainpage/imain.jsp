@@ -112,10 +112,12 @@
 		</div>
 	</div>
 	<!-- 지도 -->
-	<div class="container arround-container" id="map">
-		<button class="btn btn-primary arround-btn arround-group" onclick="returnCurrent();">
-			<i class="fas fa-crosshairs"></i>
-		</button>
+	<div class="container" >
+		<div id="map" class="col-12 arround-container">
+			<button class="btn btn-primary arround-btn arround-group" onclick="returnCurrent();">
+				<i class="fas fa-crosshairs"></i>
+			</button>
+		</div>
 	</div>
 
 
